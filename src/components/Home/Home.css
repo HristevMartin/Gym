@@ -1,0 +1,407 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+.my-class {
+    height: auto;
+    min-height: 80vh;
+
+}
+
+.my-class .internal_class {
+    height: 500px
+}
+
+.my-class .internal_class .container-img {
+    position: relative;
+
+    height: 100%;
+}
+
+
+.my-class .container-img img {
+    display: block;
+    margin: auto;
+    width: 90%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    object-fit: fill;
+}
+
+
+.container-img .card {
+    display: flex;
+    position: absolute;
+    color: red;
+    bottom: 0px;
+    flex-direction: column;
+    gap: 50px;
+    height: 30%;
+    flex-basis: left;
+    background-color: rgba(3, 3, 3, 0.5);
+    justify-content: left;
+    width: 46%;
+    height: 40%;
+    left: 76px;
+}
+
+.container-img .card h2 {
+    padding-top: 40px;
+    font-size: 50px;
+    font-weight: 30px;
+    margin-top: 10px;
+    margin: auto;
+    display: inline-block;
+    margin-bottom: 16px;
+}
+
+.container-img .card h4 {
+    font-size: 30px;
+    font-weight: 30px;
+    margin: auto;
+    margin-top: 0px;
+    display: inline-block;
+    color: white;
+}
+
+.container-img .card button {
+    width: 15%;
+    margin-top: 30px;
+    padding: 15px 0px 15px 0px;
+    background-color: red;
+    border: none;
+    color: white;
+    font-weight: 20px;
+    font-style: normal;
+    margin-left: 60px;
+}
+
+.container-img .card button a {
+    color: white;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.second-cards {
+    background-color: #181818;
+    margin-top: 3%;
+    display: flex;
+    gap: 10%;
+    justify-content: center;
+    height: 600px;
+    padding-bottom: 2%;
+    margin-bottom: 0px;
+}
+
+.second-cards div {
+    width: 40%;
+    object-fit: cover;
+    display: block;
+    object-fit: fill;
+}
+
+.second-cards div img {
+    width: 100%;
+}
+
+
+.second-cards h1 {
+    margin-top: 15px;
+    line-height: 1px;
+    color: red;
+    font-weight: 100px;
+    font-size: 20px;
+}
+
+.second-cards .text {
+    padding-top: 20px;
+    margin-bottom: 0px;
+}
+
+
+.second-cards .first-card span {
+    font-size: 20px;
+    margin-top: 30px;
+}
+
+.second-cards .first-card .text {
+    display: inline-block;
+    color: white;
+    width: 100%;
+    line-height: 25px;
+    font-weight: 20px;
+    font-size: 20px;
+}
+
+.second-cards .first-card .text section {
+    margin-top: 20px;
+}
+
+
+
+.second-cards .second-card {
+    height: 100%;
+}
+
+.second-cards .second-card span {
+    font-size: 20px;
+    margin-top: 30px;
+}
+
+.second-cards .second-card .text {
+    display: inline-block;
+    color: white;
+    width: 100%;
+    line-height: 25px;
+    font-weight: 20px;
+    font-size: 20px;
+}
+
+.second-cards .second-card img {
+    width: 100%;
+    height: 60%;
+    object-fit: cover;
+    display: block;
+    object-fit: fill;
+}
+
+.second-cards .second-card .text section {
+    margin-top: 20px;
+}
+
+.landscape {
+    margin-top: 0px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    max-height: 600px;
+    margin-top: 0px;
+    background-color: #181818;
+}
+
+.landscape img {
+    margin-left: 70px;
+    display: block;
+    width: 90%;
+    background-color: black;
+    height: 100%;
+}
+
+
+.landscape .inner-card {
+    line-height: 1px;
+    position: absolute;
+    bottom: 30px;
+    left: 90px;
+    height: 66%;
+    max-width: 35%;
+    line-height: 30px;
+    padding-right: 10px;
+    background-color: rgba(3, 3, 3, 0.5);
+}
+
+.landscape .inner-card h1 {
+    padding-top: 20px;
+    padding-left: 30px;
+    color: #e1261c;
+    padding-left: 30px;
+    margin-top: 7px;
+    font-weight: bold;
+    font-size: 30px;
+    letter-spacing: 6px;
+}
+
+.landscape .inner-card span {
+    color: red;
+    display: block;
+    padding-top: 20px;
+    padding-left: 30px;
+}
+
+.landscape .inner-card button {
+    margin-left: 30px;
+    display: block;
+    margin: auto;
+    padding: 5px 5px 5px 5px;
+    background-color: red;
+    border: none;
+
+    font-weight: 20px;
+    font-style: normal;
+    margin-top: 20px;
+}
+
+.landscape .inner-card button a {
+    color: white;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+@media screen and (max-width: 600px) {
+
+    .my-class {
+        height: auto;
+    }
+
+    .my-class .internal_class {
+        height: 300px;
+        position: relative;
+    }
+
+    .my-class .internal_class .container-img .card{
+        position: absolute;
+        top: 140px;
+    }
+
+
+    .my-class .internal_class .card h2,
+    h4 {
+        padding-top: 5px;
+    }
+
+    .container-img .card {
+        bottom: 260px;
+        left: 0px;
+        width: 70%;
+    }
+
+    .container-img .card h2 {
+        font-size: 30px;
+        line-height: 35px;
+        font-weight: 5px;
+        font-size: 20px;
+        margin-top: 0px;
+        padding-top: 25px;
+    }
+
+    .container-img .card h4 {
+        font-size: 30px;
+        line-height: 35px;
+        font-weight: 5px;
+        font-size: 20px;
+        margin-top: 0px;
+        padding-top: 15px;
+        position: absolute;
+        top: 30px;
+        left: 17px;
+    }
+
+
+
+    .second-cards {
+        padding-top: 20px;
+        flex-direction: column;
+        position: relative;
+        width: 90%;
+        height: 100%;
+        margin: auto;
+    }
+
+    .second-cards div {
+        width: 100%;
+        height: auto;
+    }
+
+    .second-cards .first-card {
+        margin-bottom: 15px; 
+    }
+
+    .second-cards .second-card {
+        margin-bottom: 15px; 
+    }
+
+    .second-cards .second-card .text h1{
+        line-height: 25px;
+    }
+
+    .second-cards .second-card .text section {
+        margin-top: 10px;
+    }
+
+ 
+
+    .landscape {
+        height: 300px;
+        width: 90%;
+        margin: auto;
+    }
+
+    .landscape img {
+        margin-left: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-fit: fill;
+    }
+
+    .landscape .inner-card {
+        position: absolute;
+        top: 16px;
+        left: 50px;
+        height: 90%;
+        width: 70%;
+        max-width: 100%;
+
+        padding-left: 6px;
+    }
+
+    .landscape .inner-card h1{
+        font-size: 20px;
+        line-height: 20px;
+        padding-top: 10px;
+        padding: 5px 0px 5px 0px;
+        letter-spacing: 2px;
+        margin: 0px;
+    }
+
+    .landscape .inner-card span{
+        font-size: 15px;
+        line-height: 15px;
+        letter-spacing: 1px;
+        padding-top: 10px;
+        padding: 5px 0px 5px 0px;
+        margin: 0px;
+    }
+
+    .landscape .inner-card button{
+  
+        font-size: 15px;
+        line-height: 15px;
+        letter-spacing: 1px;
+        padding-top: 10px;
+        margin: 0px;
+        display: block;
+        width: 50%;
+        margin: auto;
+        margin-top: 5px;
+    }
+
+    .landscape .inner-card button{
+        border: none;
+        background-color:rgba(0, 0, 0, 0.5);
+        color: rgb(159, 147, 147);
+        font-family: Arial, Helvetica, sans-serif;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 5px 0px 5px 0px;
+    }
+
+
+    .landscape .inner-card button a{
+        border: none;
+        font-size: 12px;
+        color: red;
+        font-family: Arial, Helvetica, sans-serif;
+        text-decoration: none;
+    }
+
+    /* make the footer smaller for mobile devices */
+ 
+
+
+}

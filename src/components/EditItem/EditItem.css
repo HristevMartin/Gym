@@ -1,0 +1,9 @@
+@media screen and (max-width: 600px) {
+    .body .card form {
+        width: 100%;
+    }
+
+    /* .select-category{
+        width: 100% !important;
+    } */
+}

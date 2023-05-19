@@ -1,0 +1,35 @@
+.form-container {
+    display: flex; 
+    justify-content: center;
+    margin: 50px;
+}
+
+.my-form{
+    gap: 10px;
+    max-width: 100%;
+}
+
+.form-label{
+    padding-bottom: 12px;
+    line-height: 15px;
+    color: white;
+}
+
+.form-fields{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 400px;
+}
+
+.form-fields .text-center{
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.body{
+    display: flex;
+    flex-direction: column;
+    min-height: 80vh;
+}

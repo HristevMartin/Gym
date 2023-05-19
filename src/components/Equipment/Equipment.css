@@ -1,0 +1,362 @@
+.main {
+    line-height: 20px;
+    display: flex;
+    align-items: flex-start;
+    max-width: 100%;
+    box-sizing: border-box;
+    background-color: #181818;
+    height: auto;
+}
+
+
+.main .side-nav span {
+    margin-top: 25px;
+    align-items: center;
+    display: block;
+    color: #fff;
+    border-bottom: 2px solid lightblue;
+    font-size: 20px;
+    color: #fff;
+    display: block;
+    margin-bottom: 10px;
+    ;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.main .side-nav span:last-child {
+    border-bottom: none;
+}
+
+.main .side-nav {
+    text-decoration: none;
+    list-style: none;
+    margin-top: 10px;
+    line-height: 30px;
+    max-width: 30%;
+    padding-left: 3%;
+    max-width: 100%;
+    overflow: hidden;
+    width: 400px;
+}
+
+.main .side-nav .side-list {
+    margin-top: 10px;
+    ;
+}
+
+.main .side-nav .side-list li {
+    margin-top: 10px;
+    text-decoration: none;
+    list-style: none;
+
+}
+
+.main .side-text-global {
+    margin-top: 16px;
+    color: white;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.card-items-global {
+    margin-top: 16px;
+    margin-left: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+
+    max-width: 100%;
+    width: 100%;
+    gap: 10px;
+
+    flex-direction: row;
+
+    height: 94%;
+
+    align-content: flex-start;
+}
+
+
+.side-text-global .side-text {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+    height: 3%;
+    align-items: center !important;
+    margin-top: 10px;
+}
+
+.side-text-global .side-text p {
+    margin-right: 10px;
+}
+
+.side-text-global .card-items {
+    max-height: 70%;
+    background-color: lightslategray;
+    border-radius: 6px;
+    height: 320px !important;
+}
+
+.side-text-global .sorter-label {
+    display: inline-block;
+}
+
+
+
+.control {
+    display: inline-block;
+}
+
+.side-nav .side-list li {
+    margin-top: 10px;
+    text-decoration: none;
+    list-style: none;
+    border-bottom: 2px solid lightblue;
+    padding-bottom: 20px;
+}
+
+.side-nav .side-list li a {
+    display: block;
+    margin-bottom: 10px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: left;
+    width: 100%;
+    height: 100%;
+}
+
+
+.label-attr {
+    font-size: 20px;
+    color: #fff;
+    display: inline-block;
+    margin-bottom: 10px;
+    ;
+    text-align: center;
+}
+
+.side-nav .side-list li a form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-left: 6px
+}
+
+
+
+
+
+.card-items-global .side-text {
+    align-items: flex-start;
+}
+
+
+.card-items-global .card-items .card-items-image {
+    height: 60%;
+}
+
+.card-items-global .card-items img {
+    min-width: 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-bottom: 1px solid black;
+
+}
+
+
+.card-items-global .card-items {
+    background-color: lightgrey;
+    max-width: 80%;
+    width: 26%;
+    margin-left: 10px;
+    height: 24%;
+    position: relative;
+    flex: 0 0 calc(25% - 1em);
+    margin-bottom: 1em;
+}
+
+.card-text {
+    margin-left: 10px;
+}
+
+.card-text h1 {
+    padding-top: 15px;
+    color: black;
+    margin-bottom: 10px;
+}
+
+.card-items-global .card-text p {
+    color: black;
+    display: inline-block;
+}
+
+.card-items-global .card-text button {
+    position: absolute;
+    display: block;
+    bottom: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px 10px 5px 10px;
+    font-size: 15px;
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.card-items-global .card-text button a {
+    text-decoration: none;
+    color: black;
+}
+
+
+.card-items-global .card-text button:hover {
+    background-color: black;
+    color: white;
+    text-decoration: none;
+
+}
+
+.card-items-global .card-text button:hover a {
+    color: white;
+}
+
+
+.card-items-global .card-text p:nth-of-type(2) {
+    margin-left: 10px;
+}
+
+input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+
+.main {
+    line-height: 20px;
+    display: flex;
+    align-items: flex-start;
+    max-width: 100%;
+}
+
+.card-items-global {
+    margin-top: 16px;
+    margin-left: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 100%;
+    width: 100%;
+    gap: 10px;
+    flex-direction: row;
+    align-content: flex-start;
+}
+
+.main .side-text-global {
+    color: white;
+    max-width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* @media (max-width: 600px) { 
+
+  
+    .main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+    .main .side-nav {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+ 
+    .card-items-global {
+        justify-content: space-around;
+        align-items: center;
+    }
+
+
+    .card-items-global .card-items {
+        width: 80%; 
+        height: auto; 
+    }
+
+
+    .side-text-global {
+        width: 90%; 
+        margin: 0 auto;
+    }
+} */
+
+
+@media (max-width: 768px) {
+    /* Apply to devices with width less than or equal to 768px */
+
+
+    .main {
+        flex-direction: column;
+        align-items: start;
+    }
+
+    .main .side-nav {
+        width: 100%;
+        padding-left: 0;
+    }
+
+
+    .main .side-nav {
+        width: 100%;
+        padding-left: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .card-items-global {
+        margin-left: 0px;
+    }
+
+
+    .card-items-global .card-items {
+        width: 100%;
+        flex: 0 0 50%;
+    }
+
+
+    .card-items {
+        max-width: 100%;
+        width: 100%;
+        margin-bottom: 2em;
+        height: auto;
+
+    }
+
+    .card-items .card-items-image {
+        height: auto;
+    }
+
+    .card-items img {
+        height: auto;
+    }
+
+    .card-items .card-text {
+        /* add any necessary adjustments for text size, margins, etc. */
+    }
+}

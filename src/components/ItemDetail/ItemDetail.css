@@ -1,0 +1,190 @@
+.card-details {
+  margin: auto;
+  width: 70%;
+}
+
+.product-view {
+  margin-left: 100px;
+}
+
+.product-view {
+  min-height: 50vh;
+}
+
+.product-info-top {
+  margin-top: 16px;
+  margin-left: 10px;
+
+  line-height: 15px;
+  color: white;
+  padding: 15px;
+}
+
+.product-info-top h1 {
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+span.product-sku {
+  display: inline-block;
+  margin-top: 10px;
+}
+
+
+.product-main {
+  margin-left: 25px;
+  margin-right: 15px;
+  width: 96%;
+  margin-top: 10px;
+  display: flex;
+  gap: 20px;
+  max-width: 100%;
+  height: 300px;
+  margin-bottom: 10px;
+}
+
+.product-main .product-img {
+  width: 60%;
+}
+
+img.product-img-picture {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.product-main .product-main-info {
+  line-height: 15px;
+  width: 100%;
+}
+
+
+.product-main .product-main-info .price-wrapper {
+
+  color: white;
+  line-height: 15px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+
+  font-size: 20px;
+
+  font-weight: bold;
+
+}
+
+.product-main .product-main-info .price-wrapper .price-title {
+
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.product-main .product-main-info .price-wrapper .price {
+
+  font-weight: bold;
+}
+
+.product-main .product-main-info .card-text p {
+  width: 100%;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.product-main .product-main-info .card-text button {
+
+  margin-top: 20px;
+  background-color: blue;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.product-main .product-main-info .card-text button:last-child {
+
+  background-color: red;
+}
+
+
+.product-information {
+  height: 180px;
+  line-height: 15px;
+  color: white;
+  margin-left: 23px;
+}
+
+.product-information h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  padding: 15px;
+  padding-left: 0px;
+  display: block;
+  width: 200px;
+  margin: auto;
+}
+
+.product-information .attributes-container {
+  margin-top: 5px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-information .attributes-container ul {
+  width: 40%;
+}
+
+.product-information .attributes-container li {
+  margin-bottom: 10px;
+}
+
+.product-information .attributes-container li {
+  font-weight: bold;
+  margin-right: 10px;
+  background-color: grey;
+  padding: 15px;
+}
+
+@media only screen and (max-width: 600px) {
+  .card-details {
+    width: 100%;
+    height: 80%;
+  }
+
+  .product-view {
+    margin-left: 10px;
+  }
+
+  .product-main {
+    flex-direction: column;
+    height: 100%;
+    padding-top: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  .product-main .product-img {
+    width: 60%;
+  }
+
+  .card-details .product-information{
+    margin-top: 10px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 10px;
+    padding: 0px;
+    height: 100%;
+  }
+
+  .card-details .product-information h2{
+    width: 80%;
+    align-items: center;
+    margin-left: 80px;
+    margin-bottom: 10px;
+  }
+  
+}
