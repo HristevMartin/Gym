@@ -2,8 +2,9 @@
 
 export const PostService = async (data, token) => {
 
+    const BASE_URL = process.env.NODE_ENV === "development" ? "http://localhost:5000" : "https://gym-pro-website.herokuapp.com";
 
-    let requst = await fetch('http://127.0.0.1:5000/gym-items', {
+    let requst = await fetch(`${BASE_URL}/gym-items`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

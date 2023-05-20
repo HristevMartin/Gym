@@ -6,11 +6,13 @@ import { logout2 } from "../../services/authServices";
 export const LogOut = () => {
     const { user, logout } = useAuth();
 
+    let BASE_URL = process.env.NODE_ENV === "development" ? "http://localhost:5000" : "https://gym-pro-website.herokuapp.com";
+
     const navigate = useNavigate();
 
     useEffect(() => {
         const requestUser = async () => {
-            const request = await fetch('http://localhost:5000/logout', {
+            const request = await fetch(`${BASE_URL}/logout`, {
                 'headers': {
                     'Authorization': `Bearer ${user.token}`
                 }

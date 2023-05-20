@@ -6,6 +6,8 @@ import './Home.css'
 
 export const Home = () => {
 
+    console.log('show me thiss', process.env.NODE_ENV)
+
     return (
         <div className='my-class'>
             <div className='internal_class'>

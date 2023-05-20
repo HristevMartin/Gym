@@ -20,14 +20,14 @@ export const Register = () => {
         }
 
 
-        const resp = await register(email, password)
-        console.log('resp', resp)
+         await register(email, password)
+        
         navigate('/login')
     }
 
     return (
         <div className='body'>
-            <div className="form-container"> {/* Add a container div for centering */}
+            <div className="form-container">
                 <Form className="my-form" onSubmit={registerSubmitHandler}>
                     <div className='form-fields'>
                         <Form.Group controlId="formBasicEmail">

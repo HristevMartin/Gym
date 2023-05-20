@@ -7,6 +7,8 @@ import { useNavigate } from 'react-router-dom';
 
 const EditItem = () => {
 
+    let BASE_URL = process.env.NODE_ENV === "development" ? "http://localhost:5000" : "https://gym-pro-website.herokuapp.com";
+
     const { itemId } = useParams();
     const { user } = useAuth();
 
@@ -24,7 +26,7 @@ const EditItem = () => {
 
     useEffect(() => {
         const fetchGymItem = async () => {
-            const request = await fetch(`http://127.0.0.1:5000/item-detail/${itemId}`, {
+            const request = await fetch(`${BASE_URL}/item-detail/${itemId}`, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
@@ -49,7 +51,7 @@ const EditItem = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const response = await fetch(`http://127.0.0.1:5000/item-detail/${itemId}`, {
+        const response = await fetch(`${BASE_URL}/item-detail/${itemId}`, {
             method: 'Put',
             headers: {
                 'Authorization': `Bearer ${token}`,

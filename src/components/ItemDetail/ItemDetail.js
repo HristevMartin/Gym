@@ -5,6 +5,7 @@ import { useAuth } from '../../context/AuthContext';
 
 export const ItemDetails = () => {
 
+
   const { itemId } = useParams();
 
   const [product, setProduct] = useState([]);
@@ -14,8 +15,14 @@ export const ItemDetails = () => {
   const token = user.token
 
   useEffect(() => {
+
+    let BASE_URL = process.env.NODE_ENV === "development" ? "http://localhost:5000" : "https://gym-pro-website.herokuapp.com";
+
+
     const fetchProduct = async () => {
-      const response = await fetch(`http://127.0.0.1:5000/item-detail/${itemId}`, {
+
+
+      const response = await fetch(`${BASE_URL}/item-detail/${itemId}`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }

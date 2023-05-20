@@ -22,7 +22,7 @@ export const Header = (props) => {
         <>
             <li><a href="/equipment">Gym Equipment</a></li>
             <li><a href="/upload-item">Create Item</a></li>
-            <li><a href="/upload-item">Progams</a></li>
+            <li><a href="/programs">Progams</a></li>
             <li><a href="/logout">Log Out</a></li>
 
         </>

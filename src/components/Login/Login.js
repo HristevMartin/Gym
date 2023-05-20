@@ -18,12 +18,26 @@ export const Login = () => {
         e.preventDefault();
 
         const { email, password } = Object.fromEntries(new FormData(e.target));
+        try {
+            const resp = await loginToServer(email, password)
 
-        const resp = await loginToServer(email, password)
-        console.log('resp', resp);
-        login(resp);
-        navigate('/equipment');
+            if (!resp) {
+                throw new Error('Verify your credentials');
+            }
+
+
+            console.log('in the login module show me the resp', resp)
+            login(resp);
+            navigate('/equipment');
+        }
+        catch (err) {
+            console.log('into the error')
+            console.log(err);
+        }
+
     }
+
+
     return (
         <div className='body'>
             <div className="form-container"> {/* Add a container div for centering */}

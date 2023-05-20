@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom';
 
 export const Profile = () => {
 
+    const BASE_URL = process.env.NODE_ENV === "development" ? "http://localhost:5000" : "https://gym-pro-website.herokuapp.com";
+
     const { user } = useAuth();
 
     let [items, setItem] = useState([]);
@@ -31,7 +33,7 @@ export const Profile = () => {
 
     useEffect(() => {
         const getProfile = async () => {
-            const data = await fetch('http://127.0.0.1:5000/profile-image', {
+            const data = await fetch(`${BASE_URL}/profile-image`, {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${user.token}`,
@@ -90,7 +92,7 @@ export const Profile = () => {
         formData.append("image", selectedFile);
 
         try {
-            const response = await fetch('http://127.0.0.1:5000/profile-image', {
+            const response = await fetch(`${BASE_URL}/profile-image`, {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -139,7 +141,7 @@ export const Profile = () => {
         const confirmDelete = window.confirm("Are you sure you want to delete this item?");
         if (confirmDelete) {
             // Call the API to delete the item
-            const response = await fetch(`http://127.0.0.1:5000/item-detail/${itemId}`, {
+            const response = await fetch(`${BASE_URL}/item-detail/${itemId}`, {
                 method: 'DELETE',
                 headers: {
                     'Authorization': `Bearer ${token}`

@@ -1,5 +1,8 @@
 export const getGymItems = async () => {
-    const request = await fetch('http://127.0.0.1:5000/all-gym-items');
+
+    const BASE_URL = process.env.NODE_ENV === "development" ? "http://localhost:5000" : "https://gym-pro-website.herokuapp.com";
+
+    const request = await fetch(`${BASE_URL}/all-gym-items`);
     const response = await request.json();
     return response
 }
@@ -7,7 +10,10 @@ export const getGymItems = async () => {
 export default getGymItems;
 
 export const getSingleItem = async (token) => {
-    const resp = await fetch("http://127.0.0.1:5000/get-user-item", {
+
+    const BASE_URL = process.env.NODE_ENV === "development" ? "http://localhost:5000" : "https://gym-pro-website.herokuapp.com";
+
+    const resp = await fetch(`${BASE_URL}/get-user-item`, {
         headers: {
             'Authorization': `Bearer ${token}`,
         }

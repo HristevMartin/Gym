@@ -325,9 +325,10 @@
  
 
     .landscape {
-        height: 300px;
-        width: 90%;
+        height: 320px;
+        width: 80%;
         margin: auto;
+        position: relative;
     }
 
     .landscape img {
@@ -343,7 +344,7 @@
         position: absolute;
         top: 16px;
         left: 50px;
-        height: 90%;
+        height: 96%;
         width: 70%;
         max-width: 100%;
 
@@ -369,7 +370,6 @@
     }
 
     .landscape .inner-card button{
-  
         font-size: 15px;
         line-height: 15px;
         letter-spacing: 1px;
@@ -383,25 +383,34 @@
 
     .landscape .inner-card button{
         border: none;
-        background-color:rgba(0, 0, 0, 0.5);
+        background-color:  black;
         color: rgb(159, 147, 147);
         font-family: Arial, Helvetica, sans-serif;
         text-decoration: none;
         font-weight: bold;
-        padding: 5px 0px 5px 0px;
+        padding: 6px 3px 6px 3px;
+        position: absolute;
+        top: 260px;
+        left: 60px;
     }
 
 
     .landscape .inner-card button a{
         border: none;
         font-size: 12px;
-        color: red;
+        color:red;
         font-family: Arial, Helvetica, sans-serif;
         text-decoration: none;
+        padding-bottom: 5px;
     }
 
-    /* make the footer smaller for mobile devices */
- 
+    /* make on hoover to be in red and the text in black */
+    .landscape .inner-card button:hover{
+        background-color: red;
+        color: black;
+    }
 
-
+    .landscape .inner-card button a:hover{
+        color: black;
+    }
 }
