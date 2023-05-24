@@ -1,18 +1,135 @@
-.program-card{
+.global-program-card{
     height: 80%;
-    line-height: 15px;
 }
 
-.program-card h2{
+.program-card{
+    height: 100%;
+    line-height: 15px;
+    display: flex;
+    flex-direction: row;
+    gap: 70px;
+}
+
+.global-program-card-heading{
     color: white;
     display: block;
     font-size: 1.5em;
     font-weight: bold;
     width: 200px;
     margin: auto;
-    margin-top: 30px;
+    margin-top: 10px;
 }
 
-.program-card-container{
-    border: 2px solid red;
+.program-card-containers{
+    margin-top: 30px;
+    height: 90%;
+    width: 29%;
+    margin-left: 15px;
+}
+
+.program-card-containers .container-wrapper h3{
+    padding-top: 20px;
+    color: white;
+    width: 90%;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.program-card-containers .container-wrapper img{ 
+    width: 100%;
+    height: 200px;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 2px solid #333;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: transform .2s; 
+}
+
+.program-card-containers .container-wrapper img:hover {
+    transform: scale(1.03); /* Zoom in on hover */
+}
+
+
+/* text inside the card */
+.program-card-containers .container-wrapper .program-info {
+    color: white;
+    width: 100%;
+    line-height: 25px;
+    letter-spacing: 0.5px;
+    /* style the text more beatifuly */
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    
+    /*margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 2px solid #333;
+    border-radius: 10px;
+    background-color: #333;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
+
+}
+
+/* style the container wrapper button */
+.container-wrapper-button {
+    background-color: #333;
+    color: white;
+    border: 2px solid #333;
+    border-radius: 10px;
+    width: 50%;
+    display: block;
+    margin: auto;
+    height: 40px;
+    line-height: 40px; /* centers the text vertically */
+    text-align: center; /* centers the text horizontally */
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform .2s;
+    text-decoration: none; /* removes the underline */
+}
+
+.container-wrapper-button:link,
+.container-wrapper-button:visited,
+.container-wrapper-button:hover,
+.container-wrapper-button:active {
+    text-decoration: none;
+}
+
+.container-wrapper-button:hover {
+    transform: scale(1.05);
+}
+
+
+
+
+/* style the button on hoover */
+.program-card-containers .container-wrapper .container-wrapper-button:hover{
+    background-color: #fff;
+    color: #333;
+    border: 2px solid #333;
+    border-radius: 10px;
+    width: 50%;
+    display: block;
+    margin: auto;
+    height: 40px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform .2s; 
+}
+
+/* make the hoover inside the a */
+.program-card-containers .container-wrapper .container-wrapper-button:hover a{
+    color: #333;
 }

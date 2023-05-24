@@ -20,6 +20,8 @@ const EditItem = () => {
         description: '',
     });
 
+    const [image, setImage] = useState(null);
+
     let navigate = useNavigate();
 
     const token = user.token;
@@ -32,6 +34,8 @@ const EditItem = () => {
                 }
             })
             const response = await request.json();
+
+            console.log('show me the response', response)
             setGymItem(response);
         }
 
@@ -51,13 +55,27 @@ const EditItem = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        let formData = new FormData();
+        
+        for (let key in gymItem){
+            formData.append(key, gymItem[key])
+        }
+
+
+
+        if (image) {
+            formData.append('image_file', image);
+        }
+
+        console.log('show me the image', formData.get('image_url_path'))
+
         const response = await fetch(`${BASE_URL}/item-detail/${itemId}`, {
-            method: 'Put',
+            method: 'POST',
             headers: {
                 'Authorization': `Bearer ${token}`,
-                'Content-Type': 'application/json'
             },
-            body: JSON.stringify(gymItem)
+            body: formData
         });
         const data = await response.json();
         if (data.success) {
@@ -69,6 +87,8 @@ const EditItem = () => {
             console.log(data.message);
         }
     };
+
+    console.log('show me the gym item', gymItem)
 
     return (
         <div className='body'>
@@ -112,15 +132,24 @@ const EditItem = () => {
                     />
                     <br />
 
-                    <label htmlFor="image">Image url:</label>
+                    <label htmlFor='image-upload'>Upload Image</label>
+
                     <input
-                        type="text"
-                        id="image"
-                        name="image"
-                        onChange={handleChange}
-                        value={gymItem.image_url}
-                        required
+                        style={{ display: 'none' }}
+                        className='local-image'
+                        type="file"
+                        id='imageUpload'
+                        name='image_file'
+                        accept='image/*'
+                        onChange={(e) => setImage(e.target.files[0])}
                     />
+                    <button
+                        type="button"
+                        className="uploadButton"
+                        onClick={() => document.getElementById('imageUpload').click()}
+                    >
+                        Choose file
+                    </button>
                     <br />
 
                     <label htmlFor="description">Description:</label>

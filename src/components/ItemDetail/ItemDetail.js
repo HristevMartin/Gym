@@ -29,7 +29,7 @@ export const ItemDetails = () => {
       });
       const data = await response.json();
 
-      console.log('show me the data', data)
+      
 
       setProduct(data);
     }
@@ -37,6 +37,7 @@ export const ItemDetails = () => {
     fetchProduct();
   }, [itemId])
 
+  console.log('product', product)
 
   return (
     <div className='card-details'>
@@ -55,7 +56,7 @@ export const ItemDetails = () => {
 
         <div className='product-main'>
           <div className='product-img'>
-            <img className='product-img-picture' src={product.image_url} />
+            <img className='product-img-picture' src={`http://127.0.0.1:5000/upload_profile_images/${product.image_url_path}`} />
           </div>
 
           <div className='product-main-info'>

@@ -360,3 +360,12 @@ input[type="checkbox"] {
         /* add any necessary adjustments for text size, margins, etc. */
     }
 }
+
+
+@media (max-width: 600px) {
+    .card-items-global .card-text button{
+        position: absolute;
+        height: 50px;
+        bottom: -15px;
+    }
+}

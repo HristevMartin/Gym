@@ -15,11 +15,11 @@ export const register = async (email, password) => {
         body: JSON.stringify(body)
     })
 
-    console.log('show resp', request)
+
 
     if (request.status === 400) {
         alert('Email already exists!')
-        throw new Error('Email already exists!, Please try again logging in.');
+        // throw new Error('Email already exists!, Please try again logging in.');
     }
     if (!request.ok) {
         // raise an error
@@ -31,7 +31,6 @@ export const register = async (email, password) => {
 
     if (request.status === 201) {
         console.log('been here')
-
     }
 }
 

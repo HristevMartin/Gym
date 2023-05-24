@@ -40,14 +40,18 @@ export const Profile = () => {
                 },
             })
             const profileres = await data.json();
-            console.log('show me the response from the profile route', profileres)
+
             setProfile(profileres);
 
         }
         getProfile();
     }, [refreshProfile])
 
-    console.log('show me the profile info', profile)
+    const handleImageChange = (e) => {
+        if (e.target.files && e.target.files[0]) {
+            setSelectedFile(e.target.files[0]);
+        }
+    };
 
     let token = user.token;
 
@@ -85,18 +89,16 @@ export const Profile = () => {
         const formData = new FormData();
 
         for (const key in formInputs) {
-            console.log('show me the key and value', key, formInputs[key])
             formData.append(key, formInputs[key]);
         }
 
-        formData.append("image", selectedFile);
+        formData.append("image_file", selectedFile);
 
         try {
             const response = await fetch(`${BASE_URL}/profile-image`, {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${token}`,
-                    // 'Content-Type': 'application/json',
                 },
 
                 body: formData, // Use the FormData instance as the request body
@@ -116,11 +118,15 @@ export const Profile = () => {
             console.error('Error:', error);
         }
 
+        for (var pair of formData.entries()) {
+            console.log(pair[0] + ', ' + pair[1]);
+        }
+
         setIsEditFormVisible(false);
     };
 
     const handleInputChange = (e) => {
-        console.log('show me these params', e.target.name, e.target.value)
+        
         setFormInputs({ ...formInputs, [e.target.name]: e.target.value });
     };
 
@@ -165,37 +171,59 @@ export const Profile = () => {
 
     }
 
-
+    console.log('show me the profile image', profile.image)
 
     return (
 
         <section class="card-container" ref={cardContainerRef}>
             <div class="header">
-                {/* <img src='https://media.licdn.com/dms/image/D4E03AQEF-dDOF1NVpw/profile-displayphoto-shrink_800_800/0/1673110258311?e=2147483647&v=beta&t=OXSTYht7Kh6ZnuwYPy4z0MwwQkJzTog5JAUeWxfkK3M'
-                /> */}
-                {/* <span style={{'color':'white'}}>M.H</span> */}
-                <div class="profile-content">
+
+                <div className="profile-content">
                     {
                         profile
                             ?
                             <>
-                                <p>Name: {profile.name}</p>
-                                <p>Location: {profile.location}</p>
-                                <p>Hobby: {profile.hobby}</p>
+                                {
+                                    profile.image
+                                        ?
+                                        <>
+                                            <img
+                                                className='profile-image'
+                                                src={`${BASE_URL}/upload_profile_images/${profile.image}`}
+                                                alt="profile"
+                                            />
+                                            <p>Name: {profile.name}</p>
+                                            <p>Location: {profile.location}</p>
+                                            <p>Hobby: {profile.hobby}</p>
+                                        </>
+                                        :
+                                        <>
+                                            <img src={profile.name} />
+                                            <p>Name: {profile.name}</p>
+                                            <p>Location: {profile.location}</p>
+                                            <p>Hobby: {profile.hobby}</p>
+                                        </>
+                                }
                             </>
                             :
                             <p>No Profile info yet</p>
                     }
 
-                    <button style={{ 'background-color': 'white', 'width': '55px', 'color': 'black' }} onClick={() => setIsEditFormVisible(true)}>Edit</button>
+                    <button style={{ 'backgroundColor': 'white', 'width': '55px', 'color': 'black' }} onClick={() => setIsEditFormVisible(true)}>Edit</button>
                 </div>
+
 
                 {isEditFormVisible && (
                     <form ref={formRef} className="edit-form" onSubmit={handleFormSubmit}>
-                        {/* <label for="fileInput">
+                        <label for="fileInput">
                             Upload image
-                            <input type="file" id="fileInput" name="image" onChange={handleImageChange} />
-                        </label> */}
+                            <input type="file"
+
+                                id="fileInput"
+                                name="image"
+                                onChange={handleImageChange}
+                            />
+                        </label>
                         <input type="text" name="name" placeholder="Name" value={formInputs.name} onChange={handleInputChange} />
                         <input type="text" name="location" placeholder="Location" value={formInputs.location} onChange={handleInputChange} />
                         <input type="text" name="hobby" placeholder="Hobby" value={formInputs.hobby} onChange={handleInputChange} />
@@ -212,24 +240,24 @@ export const Profile = () => {
                     {
                         items.length === 0 ? (
                             <div className="no-items">
-                                {/* style the paragraph */}
-                                <p className='no-items' >You have no items</p>
-                                <Link className='no-items-add' to="/upload-item">Add an gym item</Link>
+                                <p className='no-items-p' >You have no items</p>
+                                <Link className='no-items-add-link' to="/upload-item">Add an gym item</Link>
                             </div>
                         ) : (
                             items.map((item) =>
                                 <div class="items">
-                                    <img src={item.image_url} alt="" />
+                                    <img src={`${BASE_URL}/upload_profile_images/${item.image_url_path}`} />
 
                                     <p>Name: {item.name}</p>
                                     <span >Price: {item.price}£</span>
 
-                                    < Link to={`/edit-item/${item.item_id}`}>
+                                    < Link className='edit-profile-btn' to={`/edit-item/${item.item_id}`}>
                                         <button>Edit</button>
                                     </Link>
                                     <Link>
-                                        <button onClick={() => handleDelete(item.item_id)}>Delete</button>
+                                        <button className='dlt-profile-btn' onClick={() => handleDelete(item.item_id)}>Delete</button>
                                     </Link>
+
                                 </div>
 
                             )

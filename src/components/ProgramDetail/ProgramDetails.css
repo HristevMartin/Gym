@@ -1,0 +1,253 @@
+.global-program-detail-div {
+    color: white;
+    height: auto;
+}
+
+.global-program-detail-div h1 {
+    line-height: 35px;
+    width: 60%;
+    margin: auto;
+    text-align: center;
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.global-program-detail-div img {
+    height: 400px;
+    width: 60%;
+    padding-top: 18px;
+    display: block;
+    margin: auto;
+}
+
+.global-program-detail-div h2 {
+    color: white;
+    width: 50%;
+    line-height: 30px;
+    margin: auto;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-left: 4px solid blue;
+    border-bottom: 4px solid blue;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+
+.global-program-detail-div h3 {
+    color: white;
+    width: 63%;
+    line-height: 30px;
+    margin-right: auto;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+
+
+/* table */
+.global-program-workout-sumamry {
+    color: white;
+    line-height: 30px;
+    width: 40%;
+    margin: auto;
+}
+
+.global-program-workout-sumamry .global-program-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 30px;
+    align-items: center;
+    background-color: #333;
+    padding-left: 15px;
+}
+
+
+.global-program-workout-sumamry .global-program-info {
+    background-color: #333;
+    padding-left: 15px;
+}
+
+.global-program-workout-sumamry .global-program-info > p:nth-child(2n) {
+    border-bottom: 1px solid #000;
+    margin-bottom: 10px;
+}
+
+.global-program-workout-sumamry .global-program-info > p:nth-child(1n) {
+    border-bottom: 1px solid #000;
+    margin-bottom: 10px;
+}
+
+.global-program-workout-sumamry .global-program-info:first-child {
+    padding-top: 10px;
+    border-top: 1px solid #000;
+    margin-top: 10px;
+}
+
+.global-program-detail-div .workout-description{
+    display: block;
+    margin: auto;
+    /* style the heading */
+    font-size: 1.5em;
+    font-weight: bold;
+    width: 50%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    border-left: 4px solid blue;
+    border-bottom: 4px solid blue;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+
+/* description */
+.global-program-description{
+    line-height: 20px;
+    width: 50%;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: left;
+    padding-top: 5px;
+    font-size: 1.2em;
+}
+
+
+.global-program-detail-div  .global-program-description-what-is-the-workout{
+    display: block;
+    margin: auto;
+    /* style the heading */
+    font-size: 1.5em;
+    font-weight: bold;
+    width: 50%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    border-left: 4px solid blue;
+    border-bottom: 4px solid blue;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+
+.global-program-description-2{
+    line-height: 20px;
+    width: 50%;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: left;
+    padding-top: 5px;
+    font-size: 1.2em;
+}
+
+.program-schedule{
+    width: 50% !important;
+    margin: auto;
+    display: block !important;
+    display: block;
+    margin: auto;
+    /* style the heading */
+    font-size: 1.5em;
+    font-weight: bold;
+    width: 50%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    border-left: 4px solid blue;
+    border-bottom: 4px solid blue;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+
+.program-schedule-description{
+    line-height: 20px;
+    width: 50%;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: left;
+    padding-top: 5px;
+    font-size: 1.2em;
+}
+
+.training-schedule{
+    line-height: 15px;
+    width: 50%;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;   
+    padding-top: 5px;
+    font-size: 1.2em;
+    width: 50%;
+}
+
+.training-schedule-description{
+    line-height: 15px;
+    width: 50%;
+    margin: auto;
+}
+
+.training-schedule-description li{
+    list-style-type: none;
+    margin-bottom: 10px;
+    /* fix the font styling */
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+
+.training-schedule-description li:first-child{
+    padding-top: 5px;
+}
+
+.training-schedule-upper-training-days{
+    width: 50% !important;
+    margin: auto;
+    display: block !important;
+    display: block;
+    margin: auto;
+    /* style the heading */
+    font-size: 1.5em;
+    font-weight: bold;
+    width: 50%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    border-left: 4px solid blue;
+    border-bottom: 4px solid blue;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+
+.upper-scheme{
+    line-height: 15px;
+    width: 50%;
+    margin:auto;
+    /* fix the font */
+    font-size: 1.2em;    
+}
+
+.week-schedule-upper{
+    padding-top: 20px;
+    line-height: 20px;
+    width: 50%;
+    margin: auto;
+}
+
+.week-schedule-upper p{
+    padding-bottom: 5px;
+}

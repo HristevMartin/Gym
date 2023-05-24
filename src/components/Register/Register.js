@@ -20,8 +20,8 @@ export const Register = () => {
         }
 
 
-         await register(email, password)
-        
+        await register(email, password)
+
         navigate('/login')
     }
 

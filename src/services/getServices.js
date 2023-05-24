@@ -4,6 +4,9 @@ export const getGymItems = async () => {
 
     const request = await fetch(`${BASE_URL}/all-gym-items`);
     const response = await request.json();
+
+    console.log('show me if response is duplicated', response)
+
     return response
 }
 

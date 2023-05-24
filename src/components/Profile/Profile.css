@@ -284,6 +284,18 @@ input[type="file"] {
     text-align: center;
 }
 
+.no-items{
+    line-height: 20px;
+}
+
+.no-items p{
+    margin-bottom: 10px;
+}
+
+.profile-image{
+    border: 1px solid white;
+    width: 100px;
+}
 
 /* responsive */
 @media (max-width: 480px) {
@@ -294,16 +306,30 @@ input[type="file"] {
             "content";
     }
 
-    .card-container .header{
+    .card-container .header {
         height: 150px;
         position: relative;
-        margin-bottom: 60px;
+        margin-bottom: 10px;
+    }
+
+    .no-items .no-items-p {
+        line-height: 20px; 
+        font-size: 15px;
+        width: 200px;
+    }
+
+    .no-items .no-items-add-link{
+        line-height: 20px;
+        display: block !important;
+        font-size: 15px;
+        margin-top: 15px;
     }
 
     .card-container .profile-content {
         position: absolute;
         left: 100px;
-        top: 0px;
+        top: -25px;
+        left: 90px;
         padding-top: 0px;
     }
 
@@ -326,7 +352,12 @@ input[type="file"] {
         top: 10%;
     }
 
-    .main2 .container-headings .heading-p{
+    .main2 .container-headings{
+        flex-direction: column;
+        margin-top: 60px;
+    }
+
+    .main2 .container-headings .heading-p {
         margin-left: 55px;
     }
 
@@ -337,15 +368,16 @@ input[type="file"] {
     .main2 .card-info .items {
         width: 90%;
         margin-left: 15px;
+        height: 300px;
     }
-/* 
-    .main2 .card-info{
-        margin-left: 50p;
-    } */
 
     .edit-form {
         top: 70px;
         left: 10px;
         width: 200px;
+    }
+
+    .edit-profile-btn{
+        margin-left: 50px;
     }
 }

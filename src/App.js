@@ -16,6 +16,7 @@ import { AuthContextProvider } from './context/AuthContext';
 import LogOut from './components/LogOut/LogOut';
 import ItemDetails from './components/ItemDetail/ItemDetail';
 import Programs from './components/Progams/Programs';
+import ProgramDetail from './components/ProgramDetail/ProgramDetail';
 
 
 
@@ -56,6 +57,7 @@ function App() {
 
           <Route path="/edit-item/:itemId" element={<EditItem />} />
           <Route path="/programs" element={<Programs />} />
+          <Route path="/program-detail/:programId" element={<ProgramDetail />} />
 
         </Routes>
   
