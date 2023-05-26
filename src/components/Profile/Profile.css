@@ -170,9 +170,6 @@
     margin-bottom: 5px;
 }
 
-
-
-
 .card-info button {
     background-color: #181818;
     border: none;
@@ -183,18 +180,11 @@
     font-size: 16px;
     margin-top: 10px;
     margin-left: 0px;
-
     cursor: pointer;
     outline: none;
-
     margin-left: 50%;
     transform: translateX(50%);
-
     transition: all 0.3s ease-in-out;
-
-
-
-
 }
 
 
@@ -297,6 +287,20 @@ input[type="file"] {
     width: 100px;
 }
 
+.profile-information-heading{
+    width: 100% !important;
+    margin: auto;
+    text-align: center;
+    line-height: 30px !important;
+    margin-bottom: 10px !important;
+    margin-left: 0px !important;
+
+    padding: 5px 5px 5px 5px;
+    padding-bottom: 0px !important;
+    
+}
+
+
 /* responsive */
 @media (max-width: 480px) {
     .card-container {
@@ -327,9 +331,8 @@ input[type="file"] {
 
     .card-container .profile-content {
         position: absolute;
-        left: 100px;
-        top: -25px;
-        left: 90px;
+        top: -35px;
+        left: 66px;
         padding-top: 0px;
     }
 
@@ -365,6 +368,11 @@ input[type="file"] {
         flex-direction: column;
     }
 
+    .main2{
+        /* move it down */
+        margin-top: 40px;
+    }
+
     .main2 .card-info .items {
         width: 90%;
         margin-left: 15px;
@@ -381,3 +389,5 @@ input[type="file"] {
         margin-left: 50px;
     }
 }
+
+

@@ -27,7 +27,7 @@ export const LogOut = () => {
                     navigate('/');
                 }
             })
-    }, [user.token]);
+    }, []);
 
 
 

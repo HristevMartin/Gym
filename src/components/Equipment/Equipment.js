@@ -11,7 +11,7 @@ export const Equipment = () => {
     const [products, setProducts] = useState([]);
 
     // Define the filteredProducts state variable and the function to update it, initially an empty array
-    const [filteredProducts, setFilteredProducts] = useState([]);
+    let [filteredProducts, setFilteredProducts] = useState([]);
 
     // Define the activeFilters state variable and the function to update it, initially an empty array
     const [activeFilters, setActiveFilters] = useState([]);
@@ -30,16 +30,14 @@ export const Equipment = () => {
         getGymItems().then((items) => {
             // When the promise resolves, update the products state variable with the fetched items
             setProducts(items);
-
-            // Also set the filteredProducts state variable with the same items initially
-            setFilteredProducts(items);
-
             // Calculate dynamic height based on the number of fetched items and set the dynamicHeight state variable
             setDynamicHeight(`${items.length * 200}px`);
             setIsLoading(false);
+         
         });
         // Empty dependency array means this useEffect hook will run once when the component mounts
     }, []);
+    
 
     // useEffect hook to apply active filters and sort option when they change
     useEffect(() => {
@@ -60,6 +58,9 @@ export const Equipment = () => {
         }
 
         // Update the filteredProducts state variable with the updated products array
+        console.log('show me active filters', activeFilters)
+        console.log('show me sort option', sortOption)
+        console.log('show me products', products)
         setFilteredProducts(updatedProducts);
         // Dependency array contains activeFilters, sortOption, and products, so this useEffect hook will run when any of them change
     }, [activeFilters, sortOption, products]);
@@ -84,27 +85,10 @@ export const Equipment = () => {
         setSortOption(event.target.value);
     };
 
-
-    // console.log('show me the filters', activeFilters)
-
-    // console.log('dynamic height', dynamicHeight)
-    // useEffect(() => {
-    //     if (dynamicHeight === "0px") {
-    //         setDynamicHeight("596px");
-    //     }
-
-    //     if (products.length === 1) {
-    //         setDynamicHeight("586px");
-    //     }
-
-    //     if (products.length === 2) {
-    //         setDynamicHeight("586px");
-    //     }
-    // }, [dynamicHeight, products.length]);
+    console.log('show me latest filtered products', filteredProducts)
 
     return (
 
-        // <div class="main" style={{ height: dynamicHeight }}>
         <div class="main">
             <div class="side-nav">
                 <span style={{ 'display': 'block' }}>
@@ -176,7 +160,8 @@ export const Equipment = () => {
                                 (<p>No products found</p>)
                                 :
                                 filteredProducts.map((product) => (
-                                    <CardItem product={product} key={product.id} />
+                                    console.log("Rendering product with key: ", product.id),
+                                    <CardItem product={product} key={product.primary_id} />
                                 ))
                     }
 

@@ -251,3 +251,43 @@
 .week-schedule-upper p{
     padding-bottom: 5px;
 }
+
+
+@media only screen and (max-width: 600px) {
+    .global-program-detail-div {
+        padding: 1rem;
+    }
+  
+    .global-program-detail-div h1, 
+    .global-program-detail-div h2, 
+    .global-program-detail-div h3,
+    .global-program-description,
+    .global-program-description-2,
+    .program-schedule-description,
+    .training-schedule,
+    .training-schedule-description,
+    .week-schedule-upper {
+        width: 100%;
+    }
+  
+    .global-program-detail-div img {
+        height: auto;
+        width: 100%;
+    }
+  
+    .global-program-workout-sumamry {
+        width: 100%;
+    }
+  
+    .global-program-workout-sumamry .global-program-info {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    
+    .training-schedule-description li{
+        font-size: 1em;
+    }
+  
+    .week-schedule-upper p{
+        padding-bottom: 3px;
+    }
+  }

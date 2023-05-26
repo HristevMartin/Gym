@@ -126,7 +126,7 @@ export const Profile = () => {
     };
 
     const handleInputChange = (e) => {
-        
+
         setFormInputs({ ...formInputs, [e.target.name]: e.target.value });
     };
 
@@ -177,17 +177,19 @@ export const Profile = () => {
 
         <section class="card-container" ref={cardContainerRef}>
             <div class="header">
-
                 <div className="profile-content">
+
                     {
                         profile
                             ?
                             <>
+                                <h2 className='profile-information-heading'>Profile Information: </h2>
                                 {
                                     profile.image
                                         ?
                                         <>
                                             <img
+
                                                 className='profile-image'
                                                 src={`${BASE_URL}/upload_profile_images/${profile.image}`}
                                                 alt="profile"

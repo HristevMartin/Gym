@@ -27,9 +27,10 @@ export const ItemDetails = () => {
           'Authorization': `Bearer ${token}`
         }
       });
+
       const data = await response.json();
 
-      
+
 
       setProduct(data);
     }

@@ -14,7 +14,8 @@ export const PostService = async (data, token) => {
     if (requst.status === 201) {
         return true;
     }else{
-        return false
+        return alert('Please verify the image field')
+        
     }
 }
 

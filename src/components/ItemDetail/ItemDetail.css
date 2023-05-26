@@ -124,6 +124,9 @@ img.product-img-picture {
   display: block;
   width: 200px;
   margin: auto;
+  width: 50%;
+  margin: auto;
+  text-align: center;
 }
 
 .product-information .attributes-container {
@@ -181,7 +184,7 @@ img.product-img-picture {
   }
 
   .card-details .product-information h2{
-    width: 80%;
+    width: 100%;
     align-items: center;
     margin-left: 80px;
     margin-bottom: 10px;

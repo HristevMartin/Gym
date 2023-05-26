@@ -6,7 +6,7 @@ export const ProgramDetail = () => {
             <h1>Upper/Lower 4 Day Bodybuilding Workout</h1>
             <img src='https://cdn.muscleandstrength.com/sites/default/files/upper_lower_workout_-_1200x630.jpg' />
             <h2>Reach your muscle building goals with this balanced 4 day training split that mixes heavy compound exercises, machines and cables</h2>
-            <h3 className='workout-summary'>Workout summary</h3>
+            {/* <h3 className='workout-summary'>Workout summary</h3>
             <div className='global-program-workout-sumamry'>
                 <div className='global-program-info'>
                     <p>Main Goal</p>
@@ -21,7 +21,7 @@ export const ProgramDetail = () => {
                     <p>Main Goal</p>
                     <p>Build Muscle</p>
                 </div>
-            </div>
+            </div> */}
 
             <h3 className='workout-description'>Workout Description</h3>
             <p className='global-program-description'>
@@ -66,7 +66,7 @@ export const ProgramDetail = () => {
                     <li>Sunday - Rest</li>
                 </ul>
             </div>
-            <h3 className='training-schedule-upper-training-days'>
+            {/* <h3 className='training-schedule-upper-training-days'>
                 Upper Body Training Days
             </h3>
             <h4 className='upper-scheme'>Upper body training days follow this scheme:</h4>
@@ -77,7 +77,7 @@ export const ProgramDetail = () => {
                 <p>Shoulders - 2 sets, isolation or machine/moderate compound. Use 3 second negatives when it makes sense</p>
                 <p>Triceps - 3 sets, isolation or machine/cable exercises. Use 3 second negatives when it makes sense.</p>
                 <p>Biceps - 3 sets, isolation or machine/cable exercises. Use 3 second negatives when it makes sense.</p>
-            </div>
+            </div> */}
         </div>
     )
 }

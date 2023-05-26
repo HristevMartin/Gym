@@ -28,14 +28,15 @@ const EditItem = () => {
 
     useEffect(() => {
         const fetchGymItem = async () => {
+
             const request = await fetch(`${BASE_URL}/item-detail/${itemId}`, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
             })
+
             const response = await request.json();
 
-            console.log('show me the response', response)
             setGymItem(response);
         }
 
@@ -68,7 +69,6 @@ const EditItem = () => {
             formData.append('image_file', image);
         }
 
-        console.log('show me the image', formData.get('image_url_path'))
 
         const response = await fetch(`${BASE_URL}/item-detail/${itemId}`, {
             method: 'POST',
@@ -77,6 +77,11 @@ const EditItem = () => {
             },
             body: formData
         });
+
+        if (response.status === 400) {
+            alert('Please verify the image field')
+        }
+
         const data = await response.json();
         if (data.success) {
             setGymItem(data.gymItem);
@@ -87,8 +92,6 @@ const EditItem = () => {
             console.log(data.message);
         }
     };
-
-    console.log('show me the gym item', gymItem)
 
     return (
         <div className='body'>
