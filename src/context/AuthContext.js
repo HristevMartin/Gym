@@ -3,7 +3,7 @@ import useLocalStorage from "../hooks/useLocalStorageHook";
 
 
 const initialUserState = {
-    _id: '222',
+    _id: '',
     email: '',
     token: '',
 }

@@ -17,6 +17,14 @@ import LogOut from './components/LogOut/LogOut';
 import ItemDetails from './components/ItemDetail/ItemDetail';
 import Programs from './components/Progams/Programs';
 import ProgramDetail from './components/ProgramDetail/ProgramDetail';
+import ForgotPassword from './components/ForgotPassword/ForgotPassword';
+import PrivateRoute from './components/Common/Common';
+import Notification from './context/Notification.js';
+import { NotificationProvider } from './context/NotificationContext';
+import ScrollTest from './components/Test/Test';
+import Forum from './components/Forum/Forum';
+import ForumDetail from './components/ForumDetail/ForumDetail';
+
 
 
 
@@ -38,33 +46,38 @@ function App() {
 
   return (
     <AuthContextProvider>
-      <div className={`App ${showEquipmentHeight ? 'equipment-height' : ''}`}>
-        <Header className={showEquipmentBorder ? 'header-with-border' : ''} height={showEquipmentHeight ? 'height' : ''}
-          headerBorder={showHeaderBorder ? 'header-with-border' : ''}
-        />    
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/equipment" element={<Equipment />} />
+      <NotificationProvider>
+        <div className={`App ${showEquipmentHeight ? 'equipment-height' : ''}`}>
+          <Header className={showEquipmentBorder ? 'header-with-border' : ''} height={showEquipmentHeight ? 'height' : ''}
+            headerBorder={showHeaderBorder ? 'header-with-border' : ''}
+          />
 
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/logout" element={<LogOut />} />
+          <Notification />
+
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
 
 
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/upload-item" element={<ItemCreate />} />
-          <Route path="/item-details/:itemId" element={<ItemDetails />} />
-
-          <Route path="/edit-item/:itemId" element={<EditItem />} />
-          <Route path="/programs" element={<Programs />} />
-          <Route path="/program-detail/:programId" element={<ProgramDetail />} />
-
-        </Routes>
-  
-
-        < Footer />
-  
-      </div>
+            <Route element={< PrivateRoute />}>
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/upload-item" element={<ItemCreate />} />
+              <Route path="/equipment" element={<Equipment />} />
+              <Route path="/logout" element={<LogOut />} />
+              <Route path="/item-details/:itemId" element={<ItemDetails />} />
+              <Route path="/edit-item/:itemId" element={<EditItem />} />
+              <Route path="/programs" element={<Programs />} />
+              <Route path="/program-detail/:programId" element={<ProgramDetail />} />
+              <Route path="/forgot-password" element={<ForgotPassword />} />
+              <Route path="/test" element={<ScrollTest />} />
+              <Route path="/forum" element={<Forum />} />
+              <Route path='/forum/:id' element={<ForumDetail />}/>
+            </Route>
+          </Routes>
+          < Footer />
+        </div>
+      </NotificationProvider>
     </AuthContextProvider>
   );
 }

@@ -5,10 +5,28 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { useAuth } from '../../context/AuthContext';
+import { faArrowDown } from "@fortawesome/free-solid-svg-icons";
+
+
 
 export const Header = (props) => {
 
     const { user } = useAuth();
+
+    const { className, height, headerBorder } = props
+
+    const [showPrograms, setShowPrograms] = useState(false);
+
+    const handleMouseOver = () => {
+        ;
+        setShowPrograms(true);
+    };
+
+    const handleMouseOut = () => {
+        setShowPrograms(false);
+    };
+
+
 
     let guestNavigation = (
         <>
@@ -18,19 +36,46 @@ export const Header = (props) => {
 
     )
 
+    const programsSection = (
+        <div className="programs-overview" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+            <p>Programs Overview</p>
+            <div>
+                <a href="/programs">All Programs</a>
+            </div>
+            <div>
+                <a href="/programs">4 day split</a>
+            </div>
+            <div>
+                <a href="/programs">Push and Pull split</a>
+            </div>
+            <div>
+                <a href="/programs">Upper and Lower Body</a>
+            </div>
+        </div>
+    );
+
     let userNavigation = (
         <>
             <li><a href="/equipment">Gym Equipment</a></li>
             <li><a href="/upload-item">Create Item</a></li>
-            <li><a href="/programs">Progams</a></li>
+            <li>
+                <div onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+                    <a href="/programs">Programs</a>
+
+                    {showPrograms ? programsSection : null}
+                </div>
+
+            </li>
             <li><a href="/logout">Log Out</a></li>
-
+            <li>
+                <a href="/forum">Forum</a>
+            </li>
         </>
-    )
+    );
 
-    const { className } = props
-    const { height } = props
-    const { headerBorder } = props
+
+
+
 
     const navStyle = {
         "border-bottom": className ? '1px solid lightblue' : 'none',
@@ -58,6 +103,7 @@ export const Header = (props) => {
                 <ul className="list">
                     <li><a href="/">Home</a></li>
                     {
+
                         user.token
                             ? userNavigation
                             : guestNavigation
@@ -66,6 +112,7 @@ export const Header = (props) => {
                 </ul>
 
             </nav>
+
             {
                 user.token ? <a className='profile-logo' href='/profile'><FontAwesomeIcon style={{
                     'color': '#fff', 'margin-right': '20px', 'font-size': '1.2em'

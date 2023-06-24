@@ -1,0 +1,169 @@
+.main-forum-container {
+    line-height: 15px;
+    height: auto;
+    color: white;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.main-forum-subnav {
+    display: flex;
+    gap: 15px;
+    padding: 10px 10px 10px 10px;
+}
+
+.main-forum-subnav li a{
+    color: white;
+    text-decoration: none;
+}
+
+.main-forum-topics h1 {
+    padding-left: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 5px 5px 5px 5px;
+    margin: auto;
+    width: 15%;
+}
+
+
+.main-forum-topic-test1 {
+    padding: 5px 5px 5px 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 80%;
+    margin: auto;
+    flex-wrap: wrap;
+}
+
+.main-forum-topic-cards {
+    display: flex;
+    align-items: center;
+    background-color: rgb(49, 51, 51);
+}
+
+.main-forum-topic-cards h1 {
+    padding-top: 20px;
+}
+
+/* .main-forum-topic-cards .main-forum-cards p{
+    padding-top: 10px;
+    padding-bottom: 20px;
+} */
+
+.main-forum-topic-cards .main-forum-cards .title-main {
+    padding-left: 15px;
+    padding-bottom: 24px;
+}
+
+.main-forum-cards {
+    width: 100%;
+    display: inline-block;
+    align-items: center;
+    vertical-align: center;
+}
+
+.main-forum-topic-cards span {
+    display: flex;
+    align-items: center;
+    padding-right: 10px;
+    margin-right: 7px;
+}
+
+.main-forum-topic-cards span {
+    padding-right: 10px;
+    padding: 5px;
+    margin-right: 7px;
+    text-align: center;
+    margin-left: 15px;
+}
+
+.main-forum-topic-cards span:nth-last-of-type(1) {
+    margin-top: 10px;
+}
+
+.main-forum-labels {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    margin: 0px;
+}
+
+.main-forum-labels:last-child {
+    padding-bottom: 10px;
+}
+
+.main-forum-labels .last-span {
+    padding-bottom: 15px;
+}
+
+/* forum form */
+.hover-form {
+    position: absolute;
+    width: 600px;
+    /* Make the form wider */
+    padding: 20px;
+    /* Add some padding around the form */
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    /* Optional: Add a shadow for a floating effect */
+}
+
+.hover-form input[type="text"],
+.hover-form textarea {
+    width: 100%;
+    /* Make the input fields take up the full width of the form */
+    padding: 12px 20px;
+    /* Make the input fields taller and add some horizontal padding */
+    margin: 8px 0;
+    /* Add some vertical margin between the input fields */
+    box-sizing: border-box;
+    /* Make sure the padding doesn't make the input fields wider than the form */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    /* Optional: Add rounded borders to the input fields */
+}
+
+.hover-form button {
+    width: 100%;
+    /* Make the button take up the full width of the form */
+    padding: 14px 20px;
+    /* Make the button taller and add some horizontal padding */
+    margin: 8px 0;
+    /* Add some vertical margin above the button */
+    border: none;
+    border-radius: 4px;
+    /* Optional: Add rounded borders to the button */
+    cursor: pointer;
+    /* Change the cursor when hovering over the button */
+}
+
+.hover-form button:hover {
+    opacity: 0.8;
+    /* Change the opacity when hovering over the button for a "clickable" effect */
+}
+
+.hover-form textarea {
+    width: 100%;
+    height: 150px; /* Set a specific height */
+    padding: 15px 25px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.main-forum-cards a {
+    color: white;
+    text-decoration: none;
+}
+
+.title-main:hover  {
+    background-color: lightblue ;
+    color: black;
+}

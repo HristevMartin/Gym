@@ -14,9 +14,11 @@ export const ItemDetails = () => {
 
   const token = user.token
 
+  let BASE_URL = process.env.NODE_ENV === "development" ? "http://localhost:5000" : "https://gym-pro-website.herokuapp.com";
+
   useEffect(() => {
 
-    let BASE_URL = process.env.NODE_ENV === "development" ? "http://localhost:5000" : "https://gym-pro-website.herokuapp.com";
+    
 
 
     const fetchProduct = async () => {
@@ -57,7 +59,7 @@ export const ItemDetails = () => {
 
         <div className='product-main'>
           <div className='product-img'>
-            <img className='product-img-picture' src={`http://127.0.0.1:5000/upload_profile_images/${product.image_url_path}`} />
+            <img className='product-img-picture' src={`${BASE_URL}/upload_profile_images/${product.image_url_path}`} />
           </div>
 
           <div className='product-main-info'>

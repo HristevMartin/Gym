@@ -21,6 +21,7 @@
 
 .navigation {
     margin-right: auto;
+    position: relative;
 }
 
 
@@ -40,6 +41,53 @@
     text-decoration: none;
 }
 
+.programs-overview{
+    position: absolute; 
+    border-radius: 4%;
+    height: 200px;
+    z-index: 3;
+    line-height: 10px;
+    width: 300px;
+    left: 300px;
+    top: 10px;
+    margin-top: 2px;
+    background-color: #ffffff;
+    color: #306085;
+}
+
+.programs-overview a{
+    display: inline-block;
+    color: #306085 !important;
+    padding-top: 20px;
+    height: 28px;
+    padding: 5px;
+    margin-bottom: 10px;
+    font-family: sans-serif;
+    padding-left: 20px;
+    /*  */
+    font-size: 16px;
+    line-height: 20px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    color: #306085;
+}
+
+.programs-overview a:hover{
+    color: darkblue !important;
+}
+
+.programs-overview p{
+    margin-top: 10px;
+    color: #FFA000;
+    font-family: 'LatoBold', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    padding-left: 5px;
+}
+
+.programs-overview div:first-of-type{
+    margin-top: 20px;
+}
 
 
 /* responsive */

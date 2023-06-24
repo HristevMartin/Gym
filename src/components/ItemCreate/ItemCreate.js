@@ -18,7 +18,6 @@ const ItemCreate = () => {
         let formData = new FormData(event.target);
 
         if (selectedFile){
-            console.log('show me the selected file', selectedFile)
             formData.append('image_file', selectedFile);
         }
 
@@ -28,13 +27,12 @@ const ItemCreate = () => {
         }
     };
 
-    console.log('show me the file', selectedFile)
 
     return (
         <div className='body'>
             <div className='card'>
                 <h2>Add Gym Item</h2>
-                <form onSubmit={handleSubmit}>
+                <form className='create-item' onSubmit={handleSubmit}>
                     <label htmlFor="gymItem">Gym Item Name:</label>
                     <input
                         placeholder='Gym Item Name...'

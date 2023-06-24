@@ -97,7 +97,7 @@ const EditItem = () => {
         <div className='body'>
             <div className='card'>
                 <h2>Edit Gym Item</h2>
-                <form onSubmit={handleSubmit}>
+                <form className='create-item' onSubmit={handleSubmit}>
                     <label htmlFor="name">Gym Item Name:</label>
                     <input
                         type="text"

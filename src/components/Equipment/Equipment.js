@@ -102,7 +102,7 @@ export const Equipment = () => {
                 </span>
                 <span>Filter products</span>
                 <ul class="side-list">
-                    <li><a style={{ 'margin-bottom': '-10px', 'margin-top': '30px' }}>Category</a>
+                    <li><a style={{ 'margin-bottom': '-10px', 'margin-top': '20px', 'marginBottom': '10px' }}>Category</a>
                         <form action="">
                             <div>
                                 <input type="checkbox" name='cardio' onChange={handleCategoryChange} />

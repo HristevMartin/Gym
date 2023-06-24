@@ -13,7 +13,7 @@ const CardItem = ({ product }) => {
     <div className="card-items">
       <div className="card-items-image">
         <img style={{ 'background-color': 'white' }}
-          src={`${BASE_URL}/upload_profile_images/${imageUrl}`}
+          src={`${imageUrl}`}
           alt={product.name}
 
         />

@@ -1,0 +1,27 @@
+.notification{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 20%;
+    padding-top: 0px;
+    margin: auto;
+    text-align: center;
+    padding-bottom: 10px;
+    height: 5%;
+    line-height: 15px;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.notification-msg{
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    line-height: 15px;
+}

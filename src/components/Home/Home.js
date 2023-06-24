@@ -1,37 +1,56 @@
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Home.css'
+import { useState } from 'react';
+import { useRef } from 'react';
 
 
 
 export const Home = () => {
+    const [isVisible, setVisible] = useState(false);
 
-    console.log('show me thiss', process.env.NODE_ENV)
+    const toggleVisibility = () => {
+        if (window.scrollY > 2) { // Adjust this value for smaller viewport
+            setVisible(true);
+        } else {
+            setVisible(false);
+        }
+    };
 
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+        });
+    };
+
+
+    useEffect(() => {
+        window.addEventListener("scroll", toggleVisibility);
+        return () => window.removeEventListener("scroll", toggleVisibility);
+    }, []);
     return (
         <div className='my-class'>
             <div className='internal_class'>
                 <div class="container-img">
-                    {/* <img src="https://thumbs.dreamstime.com/b/power-muscular-bodybuilder-guy-doing-pullups-gym-fitness-man-black-white-image-pumping-up-lats-muscles-91597926.jpg"
-                    alt="" /> */}
                     <img src="https://img.freepik.com/premium-photo/couple-training-gym_186382-6616.jpg?w=2000" />
                     <div class="card">
                         <h2>SMARTER IS STRONGER</h2>
                         <h4>Intelligent Training Platform</h4>
-                        {/* <button> <a href="">Learn more</a></button> */}
                     </div>
                 </div>
             </div>
 
 
 
-            <div class="second-cards">
+            <div className="second-cards">
                 <div class="first-card">
                     <img src="https://images.herzindagi.info/image/2022/May/fun-cardio-workout.jpg" alt="" />
                     <div class="text">
                         <h1>Why Do we need to do Cardio ?</h1>
                         <section>
-                            <p style={{ 'display': 'inline-block'}}>
+                            <p style={{ 'display': 'inline-block' }}>
                                 Cardiovascular exercise, or cardio, is a vital component of a well-rounded fitness routine that improves cardiovascular health, aids in weight management, enhances endurance and stamina, boosts mental well-being, and fosters social connections, making it an essential part of a healthy and active lifestyle.
                             </p>
                         </section>
@@ -50,7 +69,7 @@ export const Home = () => {
             </div>
 
 
-            <div class="landscape">
+            <div className="landscape">
                 <img src="https://images.squarespace-cdn.com/content/v1/5e81f296eca8656d4cc7f9ac/1625218190083-45ABEW5ZJG5BIZRCS5O6/SwiftGym036_sr.jpg?format=2500w"
                     alt="" />
                 <div class="inner-card">
@@ -61,7 +80,18 @@ export const Home = () => {
                     <button><a href="">Discover more</a></button>
 
                 </div>
+
             </div>
+
+            {isVisible && (
+                <button
+                    className='scroll-to-top'
+                    onClick={scrollToTop}
+                >
+                    Back to top
+                </button>
+            )}
+
 
         </div>
     )

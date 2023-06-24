@@ -15,21 +15,23 @@ export const Profile = () => {
 
     const [selectedFile, setSelectedFile] = useState(null);
 
-    // for setting the profile data
-    const [profile, setProfile] = useState({
-        name: '',
-        location: '',
-        hobby: ''
-
-    });
-
-
     const [refreshProfile, setRefreshProfile] = useState(false);
-
 
     const [isEditFormVisible, setIsEditFormVisible] = useState(false);
 
-    const [formInputs, setFormInputs] = useState({});
+    const [formInputs, setFormInputs] = useState({
+        name: '',
+        location: '',
+        hobby: '',
+        image: ''
+    });
+
+    const [profile, setProfile] = useState({
+        image: '',
+        name: '',
+        location: '',
+        hobby: ''
+    });
 
     useEffect(() => {
         const getProfile = async () => {
@@ -40,7 +42,6 @@ export const Profile = () => {
                 },
             })
             const profileres = await data.json();
-
             setProfile(profileres);
 
         }
@@ -55,7 +56,7 @@ export const Profile = () => {
 
     let token = user.token;
 
-    // handle edit profile picture
+    // handle profile picture
     const formRef = useRef(null);
 
 
@@ -67,7 +68,13 @@ export const Profile = () => {
         }
 
         if (isEditFormVisible) {
-            // Add the event listener when the form is visible
+            setFormInputs({
+                name: profile.name || '',
+                location: profile.location || '',
+                hobby: profile.hobby || '',
+                image: ''
+            });
+
             document.addEventListener('mousedown', handleClickOutside);
         } else {
             // Remove the event listener when the form is hidden
@@ -78,9 +85,7 @@ export const Profile = () => {
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
-    }, [isEditFormVisible]); // Depend on isEditFormVisible so it re-runs when this value changes
-
-
+    }, [isEditFormVisible, profile]); // Depend on isEditFormVisible so it re-runs when this value changes
 
     // Function to handle form submission
     const handleFormSubmit = async (e) => {
@@ -89,7 +94,7 @@ export const Profile = () => {
         const formData = new FormData();
 
         for (const key in formInputs) {
-            formData.append(key, formInputs[key]);
+            formData.append(key, formInputs[key] || '');
         }
 
         formData.append("image_file", selectedFile);
@@ -110,16 +115,11 @@ export const Profile = () => {
                 setRefreshProfile(current => !current);
 
             } else {
-                // Handle error response
                 console.log(response.message);
             }
         } catch (error) {
             // Handle network errors
             console.error('Error:', error);
-        }
-
-        for (var pair of formData.entries()) {
-            console.log(pair[0] + ', ' + pair[1]);
         }
 
         setIsEditFormVisible(false);
@@ -171,7 +171,6 @@ export const Profile = () => {
 
     }
 
-    console.log('show me the profile image', profile.image)
 
     return (
 
@@ -188,12 +187,7 @@ export const Profile = () => {
                                     profile.image
                                         ?
                                         <>
-                                            <img
-
-                                                className='profile-image'
-                                                src={`${BASE_URL}/upload_profile_images/${profile.image}`}
-                                                alt="profile"
-                                            />
+                                            <img className='profile-image' src={profile.image} />
                                             <p>Name: {profile.name}</p>
                                             <p>Location: {profile.location}</p>
                                             <p>Hobby: {profile.hobby}</p>
@@ -248,7 +242,7 @@ export const Profile = () => {
                         ) : (
                             items.map((item) =>
                                 <div class="items">
-                                    <img src={`${BASE_URL}/upload_profile_images/${item.image_url_path}`} />
+                                    <img src={`${item.image_url_path}`} />
 
                                     <p>Name: {item.name}</p>
                                     <span >Price: {item.price}£</span>

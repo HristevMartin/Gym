@@ -1,0 +1,146 @@
+.main-comments-section {
+    background-color: #3a3b3c;
+    margin-bottom: 20px;
+    padding: 15px;
+    width: 80%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+
+.forum-content {
+    /* wrap the text to break */
+    word-break: break-word;
+    /* padding-left: 5px; */
+    padding-right: 5px;
+}
+
+.comment-section-like {
+    position: absolute;
+    bottom: -56px;
+    left: -100px;
+    /* style it like a button */
+    background-color: #3a3b3c;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/*  */
+/* CSS to style the emoji picker button */
+button.emoji-picker {
+    padding: 5px 10px;
+    border: none;
+    margin: 10px 0;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #ddd;
+}
+
+/* CSS to style the emoji options */
+div.emoji-options {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    width: 60%;
+}
+
+/* CSS to style each emoji option button */
+div.emoji-options button {
+    padding: 10px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+/* CSS to style selected emoji */
+p.selected-emoji {
+    /* margin-top: 1px; */
+    font-size: 15px;
+}
+
+.emoji-options {
+    border-radius: 10px;
+    background-color: lightblue;
+    width: 80%;
+}
+
+
+/* emoji */
+.reaction {
+    position: relative;
+    display: inline-block;
+}
+
+.emoji-tooltip {
+    max-height: 100px;
+    /* Adjust the maximum height according to your preference */
+    overflow-y: auto;
+    /* Enable scrolling when content exceeds the maximum height */
+    visibility: hidden;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    width: 120px;
+    height: 50px;
+    color: white;
+    line-height: 10px;
+    font-size: 10px;
+    padding-top: 15px;
+    /* height: ; */
+}
+
+.reaction:hover .emoji-tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+.emoji-picker.emoji-selected {
+    background-color: rgb(60, 60, 209);
+    color: white;
+}
+
+.user-usernames {
+    color: white;
+    font-size: 12px;
+    font-weight: 400;
+    margin-left: 10px;
+    padding: 2px;
+}
+
+.no-comments-yet {
+    width: 42%;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 5px 5px 5px 5px;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.comment-picker {
+    margin-left: 5px;
+    padding: 5px;
+    border-radius: 6px;
+}
+
+.like-comment{
+    display: flex;
+    /* flex-direction: column; */
+}

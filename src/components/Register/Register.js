@@ -3,9 +3,12 @@ import Form from 'react-bootstrap/Form';
 import './Register.css'; // Import custom CSS file for styling
 import register from '../../services/authServices';
 import { useNavigate } from 'react-router-dom';
+import useNotificationContext from '../../context/NotificationContext';
 
 
 export const Register = () => {
+
+    const { addNotification } = useNotificationContext();
 
     const navigate = useNavigate();
 
@@ -14,11 +17,23 @@ export const Register = () => {
 
         let { email, password, secondPassword } = Object.fromEntries(new FormData(e.currentTarget))
 
-        if (password !== secondPassword) {
-            alert('Passwords do not match!');
+        console.log(email, password, secondPassword)
+
+        if (!email || !password || !secondPassword) {
+            addNotification('All fields are required!', 'danger')
             return;
         }
 
+        if (password !== secondPassword) {
+            addNotification('Password do not match!', 'danger')
+            return;
+        }
+
+        // check if password is at least 8 characters long
+        if (password.length < 8) {
+            addNotification('Password must be at least 8 characters long!', 'danger')
+            return;
+        }
 
         await register(email, password)
 

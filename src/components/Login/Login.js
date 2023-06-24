@@ -5,19 +5,35 @@ import { Form, Button } from 'react-bootstrap';
 import { loginToServer } from '../../services/authServices';
 import { useAuth } from '../../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import useNotificationContext from '../../context/NotificationContext';
+
 
 export const Login = () => {
 
     const { login } = useAuth();
 
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
+
     const navigate = useNavigate();
 
-    // const { login } = useAuthContext();  
+    const {addNotification} = useNotificationContext();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setError(null);
+        setLoading(true);
 
         const { email, password } = Object.fromEntries(new FormData(e.target));
+
+        if (!email || !password) {
+            setError("Both email and password are required");
+            setLoading(false);
+            return;
+        }
+
         try {
             const resp = await loginToServer(email, password)
 
@@ -25,14 +41,14 @@ export const Login = () => {
                 throw new Error('Verify your credentials');
             }
 
-
-            console.log('in the login module show me the resp', resp)
             login(resp);
+            addNotification('Logged in successfully!', 'success')
             navigate('/equipment');
         }
         catch (err) {
-            console.log('into the error')
-            console.log(err);
+            setError(err.message);
+        } finally {
+            setLoading(false);
         }
 
     }
@@ -40,29 +56,38 @@ export const Login = () => {
 
     return (
         <div className='body'>
-            <div className="form-container"> {/* Add a container div for centering */}
-                <Form className="my-form" onSubmit={handleSubmit}>
-                    <div className='form-fields'>
-                        <Form.Group controlId="formBasicEmail">
-                            <Form.Label>Email address</Form.Label>
-                            <Form.Control name='email' type="email" placeholder="Enter email" />
-                        </Form.Group>
+            <div className="form-container">
+                {error && <p className="error-message">{error}</p>}
+                {loading ? (
+                    <p className="loading-message" style={{'color':'white'}}>Loading...</p>
+                ) : (
+                    <Form className="my-form" onSubmit={handleSubmit}>
+                        <div className='form-fields'>
+                            <Form.Group controlId="formBasicEmail">
+                                <Form.Label>Email address</Form.Label>
+                                <Form.Control name='email' type="email" placeholder="Enter email" />
+                            </Form.Group>
 
-                        <Form.Group controlId="formBasicPassword">
-                            <Form.Label>Password</Form.Label>
-                            <Form.Control name='password' type="password" placeholder="Password" />
-                        </Form.Group>
+                            <Form.Group controlId="formBasicPassword">
+                                <Form.Label>Password</Form.Label>
+                                <Form.Control name='password' type="password" placeholder="Password" />
+                            </Form.Group>
 
-                        <div className="text-center">
-                            <Button variant="primary" type="submit" className="btn-sm">
-                                Submit
-                            </Button>
+                            <div className="text-center">
+                                <Button variant="primary" type="submit" className="btn-sm">
+                                    Submit
+                                </Button>
+                                <Link to="/forgot-password" className="btn btn-link">
+                                    Forgot Password
+                                </Link>
+                            </div>
                         </div>
-                    </div>
-                </Form>
+                    </Form>
+                )}
             </div>
         </div>
     )
+
 }
 
 export default Login;
