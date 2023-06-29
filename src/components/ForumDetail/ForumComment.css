@@ -126,12 +126,17 @@ p.selected-emoji {
 }
 
 .no-comments-yet {
-    width: 42%;
+    width: 30%;
     font-size: 20px;
+    text-align: center;
     font-weight: 600;
     padding: 5px 5px 5px 5px;
     margin: auto;
     margin-bottom: 20px;
+    display: block;
+    margin-right: 344px;
+    margin-top: 20px;
+    margin-bottom: 30px;
 }
 
 .comment-picker {
@@ -144,3 +149,8 @@ p.selected-emoji {
     display: flex;
     /* flex-direction: column; */
 }
+
+/* .main-comments-section{
+    display: flex;
+    flex-direction: column;
+} */

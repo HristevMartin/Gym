@@ -2,16 +2,14 @@ import React, { useState, useRef, useEffect } from 'react';
 import './ForumComment.css';
 import { useAuth } from '../../context/AuthContext';
 
-const ForumComment = ({ content, forum_id }) => {
+const ForumComment = ({ content, forum_id, id, setRefreshKey }) => {
     const { user } = useAuth();
     const [showEmojis, setShowEmojis] = useState(false);
     const [selectedEmoji, setSelectedEmoji] = useState(null);
     const [loading, setLoading] = useState(false);
-    const [emojiReactions, setEmojiReactions] = useState({}); // A map that stores emoji -> array of usernames
+    const [emojiReactions, setEmojiReactions] = useState({});
 
-    const [isHovered, setIsHovered] = useState(false);
-
-
+    const [reactionId, setReactionId] = useState(null);
 
     const emojiPickerRef = useRef();
     const emojis = ["👍", "😅", "🤣", "🥲", "😭", "😕", "😎"];
@@ -29,7 +27,7 @@ const ForumComment = ({ content, forum_id }) => {
 
             if (response.ok) {
                 const data = await response.json();
-                return data; // This will be an object mapping user IDs to usernames
+                return data;
             } else {
                 console.error('Failed to fetch usernames:', response.status);
             }
@@ -43,7 +41,8 @@ const ForumComment = ({ content, forum_id }) => {
     const fetchReactions = async () => {
         setLoading(true);
         try {
-            const response = await fetch(`http://localhost:5000/get-emoji/${forum_id}`, {
+            const fetchId = reactionId || id;
+            const response = await fetch(`http://localhost:5000/get-emoji/${fetchId}`, {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${user.token}`,
@@ -53,8 +52,7 @@ const ForumComment = ({ content, forum_id }) => {
             if (response.ok) {
                 const data = await response.json();
                 const userReaction = data.find(reaction => String(reaction.user_id) === String(user._id));
-                // Update selectedEmoji only if userReaction is found
-                console.log('show me the selected emoji', userReaction);
+
                 if (userReaction) {
                     setSelectedEmoji(userReaction.emoji);
                 } else {
@@ -62,7 +60,6 @@ const ForumComment = ({ content, forum_id }) => {
                 }
 
                 const userIds = data.map(reaction => reaction.user_id);
-
                 const usernames = await fetchUsernames(userIds);
 
                 setEmojiReactions(data.reduce((obj, reaction) => {
@@ -79,7 +76,6 @@ const ForumComment = ({ content, forum_id }) => {
     };
 
 
-
     const saveReaction = async (emoji) => {
         setLoading(true);
         try {
@@ -91,14 +87,16 @@ const ForumComment = ({ content, forum_id }) => {
                 },
                 body: JSON.stringify({
                     emoji,
+                    id,
                     forum_id,
                 }),
             });
 
             if (response.ok) {
                 console.log('Reaction saved to server successfully');
-                // setSelectedEmoji(emoji); // Update selectedEmoji state here
-                fetchReactions(); // Fetch reactions again after saving
+                const data = await response.json();
+                setReactionId(data.id);
+                await fetchReactions();
             } else {
                 console.error('Failed to save reaction:', response.status);
             }
@@ -109,15 +107,17 @@ const ForumComment = ({ content, forum_id }) => {
         }
     };
 
-
-    const handleEmojiClick = (emoji) => {
+    const handleEmojiClick = async (emoji) => {
         setShowEmojis(false);
         saveReaction(emoji);
     };
 
+
+
     const handleClickOutside = (event) => {
         if (emojiPickerRef.current && !emojiPickerRef.current.contains(event.target)) {
             setShowEmojis(false);
+
         }
     };
 
@@ -130,15 +130,12 @@ const ForumComment = ({ content, forum_id }) => {
 
     useEffect(() => {
         fetchReactions();
-    }, [forum_id, selectedEmoji]);
-
-
+        setRefreshKey(prevKey => prevKey + 1);
+    }, [forum_id, reactionId, user]);
 
     return (
-
         <div className="main-comments-section">
             <p className="forum-content">{content}</p>
-
 
             <div>
                 <button
@@ -147,6 +144,7 @@ const ForumComment = ({ content, forum_id }) => {
                 >
                     Like
                 </button>
+
                 {showEmojis && (
                     <div ref={emojiPickerRef} className="emoji-options">
                         {emojis.map((emoji, index) => (
@@ -160,33 +158,22 @@ const ForumComment = ({ content, forum_id }) => {
                             </button>
                         ))}
                     </div>
-
                 )}
-
             </div>
 
-            <div className='like-comment'>
-                <button
-                    onMouseEnter={() => setIsHovered(true)}
-                    onMouseLeave={() => setIsHovered(false)}
-                    className='comment-picker'>
-                    Comment
-                </button>
-
+            {/* <div className='like-comment'>
                 {isHovered && (
                     <div className="comment-section">
                         <form >
                             <textarea
                                 name='comment'
                                 className="input-textarea"
-                            // value={newComment}
-                            // onChange={e => setNewComment(e.target.value)}
                             />
                             <button style={{ 'margin': 'auto', 'display': 'block' }} >Submit</button>
                         </form>
                     </div>
                 )}
-            </div>
+            </div> */}
 
             <div>
                 {Object.entries(emojiReactions).map(([emoji, users], index) => (
@@ -202,9 +189,6 @@ const ForumComment = ({ content, forum_id }) => {
                 ))}
             </div>
         </div>
-
-
-
     );
 };
 

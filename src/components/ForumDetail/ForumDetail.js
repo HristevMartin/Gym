@@ -10,6 +10,7 @@ export const ForumDetail = () => {
     const { id } = useParams();
     const { user } = useAuth();
     const [loading, setLoading] = useState(true);
+    const [hoovered, setHoovered] = useState(false);
 
     // This will be in ForumDetail.js
     const [refreshKey, setRefreshKey] = useState(0);
@@ -61,25 +62,63 @@ export const ForumDetail = () => {
         fetchData();
     }, [id, user.token, refreshKey]);
 
-    
+    let handleSubmittedData = async (e) => {
+        e.preventDefault();
+        console.log('submitted data', e.target.comment.value)
+
+        const data = e.target.comment.value
+        const request = await fetch(`http://localhost:5000/save-comment/${id}`, {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${user.token}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                content: data,
+            })
+        })
+
+        if (request.status === 201){
+            const dataResp = await request.json();
+            console.log(dataResp);
+            setRefreshKey(prevKey => prevKey + 1);
+        }
+
+    }
+
 
     return (
-        loading ? <div className="loading-forums-state">Loading...</div>
-            :
-            <div className="forum-detail-main">
-                <div className="forum-detail-section">
-                    <div className="span-detail-section">
-                        <h1>Title {forum.title}</h1>
-                        <p className="description-comments">Description: {forum.description}</p>
+            loading ? <div className="loading-forums-state">Loading...</div>
+                :
+                <div className="forum-detail-main">
+                    <div className="forum-detail-section">
+                        <div className="span-detail-section">
+                            <h1>Title {forum.title}</h1>
+                            <p className="description-comments">Description: {forum.description}</p>
+                        </div>
+
                     </div>
+                    <div className="comments">
+                        <h2>Comments</h2>
+                        <ForumCommentsList comments={comments} setRefreshKey={setRefreshKey} id={id} />
 
+                        <div className="add-comment" onMouseEnter={() => setHoovered(true)} onMouseLeave={() => setHoovered(false)}>
+                            <label className="add-comment-label">Add Comment</label>
+                            {hoovered &&
+                                <form onSubmit={handleSubmittedData} className="add-comment-form">
+                                    <textarea
+                                        name="comment"
+                                        className="add-comment-textarea"
+                                    // value={commentText}
+                                    // onChange={(e) => setCommentText(e.target.value)} // we update commentText whenever the user types in the textarea
+                                    />
+                                    <button className="submit-comment-button">Submit</button>
+                                </form>
+                            }
+                        </div>
+                    </div>
                 </div>
-                <div className="forum-detail-comments">
-                    <h2 className="comments-title">Comments</h2>
-                    <ForumCommentsList comments={comments} setRefreshKey={setRefreshKey}  id={id} />
-                </div>
-            </div>
-    );
-};
+        );
+    };
 
-export default ForumDetail;
+    export default ForumDetail;

@@ -42,16 +42,17 @@
     width: 100%;
 }
 
-.forum-detail-comments{
-    /* border: 5px solid  red; */
+.commnets{
+
 }
 
-.forum-detail-comments h2{
+.comments h2{
     font-size: 20px;
     font-weight: 600;
     padding: 5px 5px 5px 5px;
     margin: auto;
     width: 36%;
+    margin-bottom: 10px;
 }
 
 .forum-detail-comments h2{
@@ -78,6 +79,7 @@
     font-weight: 500;
     padding: 5px;
     border-radius: 10px;
+    margin-left: 150px !important;
 }
 
 .add-comment:hover{
@@ -85,12 +87,7 @@
     cursor: pointer;
 }
 
-.comments-title{
-    background-color: #3a3b3c;
-    border-radius: 10px;
-    text-align: center;
-    margin-top: 50px !important;
-}
+
 
 .no-comments-yet{
     border-radius: 10px;
@@ -122,15 +119,10 @@
 }
 
 .add-comment {
-    color: #007BFF;
     cursor: pointer;
     font-size: 16px;
     margin-bottom: 10px;
-    text-decoration: underline;
-}
-
-.add-comment:hover {
-    color: #0056b3;
+    /* text-decoration: underline; */
 }
 
 .input-section {
@@ -147,7 +139,6 @@
 }
 
 .input-section textarea {
-    border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
     padding: 10px;
@@ -177,3 +168,56 @@
     background-color: #0056b3;
 }
 
+.comments-title{
+    background-color: #3a3b3c;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 50px !important;
+    margin: auto;
+    display: block;
+    margin-left: 0px;
+    padding-left: 0px;
+    margin-left: 150px !important;
+    margin-bottom: 13px !important;
+}
+
+
+
+/* comment section */
+.add-comment{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: auto;
+    text-align: center;
+    justify-content: center;
+}
+
+.add-comment-label {
+    text-decoration: none !important;
+    border: none;
+  }
+
+.add-comment-button{
+    width: 50%;
+    margin: auto;
+}
+
+.add-comment-textarea{
+    width: 100%;
+    display: block;
+    height: 60px;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+.submit-comment-button{
+    width: 50%;
+    margin: auto;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.comments{
+    margin-top: 50px;
+}
