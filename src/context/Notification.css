@@ -7,13 +7,23 @@
     margin: auto;
     text-align: center;
     padding-bottom: 10px;
-    height: 5%;
+    height: 6%;
     line-height: 15px;
     background-color: rgba(0,0,0,0.5);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 100;
+}
+
+.notification-message{
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    padding-top: 15px;
+    display: block;
+    text-align: center;
+    line-height: 15px;
 }
 
 .notification-msg{
@@ -24,4 +34,32 @@
     padding: 0;
     text-align: center;
     line-height: 15px;
+}
+
+/* write for mobile devices */
+@media only screen and (max-width: 600px) {
+    .notification{
+        width: 20%;
+        height: 8%;
+        padding-top: 0px;
+        margin: auto;
+        text-align: center;
+        padding-bottom: 10px;
+        line-height: 15px;
+        background-color: rgba(0,0,0,0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 100;
+    }
+    
+    .notification-msg{
+        color: white;
+        font-size: 14px;
+        font-weight: 500;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        line-height: 15px;
+    }
 }

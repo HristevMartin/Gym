@@ -4,7 +4,7 @@ import './Footer.css';
 export const Footer = () => {
     return (
         <footer className="footer">
-            <p>&copy; 2023 FitPro Gym. All Rights Reserved.</p>
+            <p>&copy; 2023 Gym Hub. All Rights Reserved.</p>
         </footer>
     )
 }

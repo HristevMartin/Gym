@@ -1,0 +1,14 @@
+.star {
+    color: #bbb;
+    cursor: pointer;
+    font-size: 24px;
+    margin-right: 5px;
+}
+
+.star.rated {
+    color: blue;
+}
+
+.star.user-rated {
+    color: purple;
+}

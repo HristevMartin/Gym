@@ -1,5 +1,5 @@
 import { Spinner } from '../Spinner/Spinner.js';
-import getGymItems from '../../services/getServices';
+import {getGymItems} from '../../services/getServices';
 import CardItem from './CardItem';
 import './Equipment.css';
 import { useState, useEffect } from 'react'
@@ -58,9 +58,6 @@ export const Equipment = () => {
         }
 
         // Update the filteredProducts state variable with the updated products array
-        console.log('show me active filters', activeFilters)
-        console.log('show me sort option', sortOption)
-        console.log('show me products', products)
         setFilteredProducts(updatedProducts);
         // Dependency array contains activeFilters, sortOption, and products, so this useEffect hook will run when any of them change
     }, [activeFilters, sortOption, products]);
@@ -85,24 +82,25 @@ export const Equipment = () => {
         setSortOption(event.target.value);
     };
 
-    console.log('show me latest filtered products', filteredProducts)
+    const classNameCard = filteredProducts.length === 0 ? 'card-items-globall-spiner' : 'card-items-globall';
+
 
     return (
 
         <div class="main">
             <div class="side-nav">
-                <span style={{ 'display': 'block' }}>
+                <span >
                     {
                         activeFilters.length > 0
                             ?
-                            <p>Filtering by: {activeFilters.map(filter => <span class="filter">{filter.charAt(0).toUpperCase() + filter.slice(1)} Category</span>)}</p>
+                            <p className='filtering-by'>Filtering by: {activeFilters.map(filter => <span class="filter">{filter.charAt(0).toUpperCase() + filter.slice(1)} Category</span>)}</p>
                             :
-                            <p>Viewing all products</p>
+                            <p className='view-all-products'>Viewing all products</p>
                     }
                 </span>
-                <span>Filter products</span>
+                <span className='filter-products'>Filter products</span>
                 <ul class="side-list">
-                    <li><a style={{ 'margin-bottom': '-10px', 'margin-top': '20px', 'marginBottom': '10px' }}>Category</a>
+                    <li><a className='equipment-category' >Categories</a>
                         <form action="">
                             <div>
                                 <input type="checkbox" name='cardio' onChange={handleCategoryChange} />
@@ -122,20 +120,13 @@ export const Equipment = () => {
                             </div>
                         </form>
                     </li>
-                    {/* <li><a>Price</a>
-                        <form action="">
-                            <div>
-                                <input type="range" />
-                            </div>
-                        </form>
-                    </li> */}
                 </ul>
 
             </div>
 
             <div class="side-text-global">
                 <div class="side-text">
-                    <p class="toolbar-number">Products:{filteredProducts.length}</p>
+                    <p class="toolbar-number">Products: {filteredProducts.length}</p>
                     <div class="sorter">
                         <label style={{ 'margin-right': "10px" }} class="sorter-label" for="sorter">Sort By</label>
                         <div class="control">
@@ -143,13 +134,11 @@ export const Equipment = () => {
                                 <option value="price">Price </option>
                                 <option value="alphabetical">Product name</option>
                             </select>
-
                         </div>
-
                     </div>
                 </div>
 
-                <div className="card-items-global">
+                <div  className={classNameCard}>
                     {
                         isLoading
                             ?
@@ -157,10 +146,9 @@ export const Equipment = () => {
                             :
 
                             filteredProducts.length === 0 ?
-                                (<p>No products found</p>)
+                                (<p className='equipment-no-product-found'>No products found</p>)
                                 :
                                 filteredProducts.map((product) => (
-                                    console.log("Rendering product with key: ", product.id),
                                     <CardItem product={product} key={product.primary_id} />
                                 ))
                     }

@@ -36,23 +36,23 @@ export const Login = () => {
 
         try {
             const resp = await loginToServer(email, password)
-
-            if (!resp) {
+            console.log('resp', resp)
+            if (resp==false) {
+                console.log('been here');
+                addNotification('Verify your credentials!', 'danger');
                 throw new Error('Verify your credentials');
             }
-
             login(resp);
             addNotification('Logged in successfully!', 'success')
-            navigate('/equipment');
+            navigate('/profile');
         }
         catch (err) {
-            setError(err.message);
+            console.log('goes in heree wee')
         } finally {
             setLoading(false);
         }
 
     }
-
 
     return (
         <div className='body'>
@@ -77,8 +77,8 @@ export const Login = () => {
                                 <Button variant="primary" type="submit" className="btn-sm">
                                     Submit
                                 </Button>
-                                <Link to="/forgot-password" className="btn btn-link">
-                                    Forgot Password
+                                <Link to="/forgot-password" className="btn btn-link-forgot-password">
+                                    <p className='forgot-attr'>Forgot Password</p>
                                 </Link>
                             </div>
                         </div>

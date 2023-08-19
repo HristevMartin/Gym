@@ -1,11 +1,11 @@
 .main-forum-container {
     line-height: 15px;
-    height: auto;
     color: white;
     list-style: none;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    min-height: 80vh;
 }
 
 .main-forum-subnav {
@@ -35,27 +35,28 @@
     flex-direction: column;
     gap: 25px;
     width: 80%;
-    margin: auto;
+    margin: 0px;
+    margin-left: 140px;
+    margin-top: 10px;
     flex-wrap: wrap;
 }
 
 .main-forum-topic-cards {
     display: flex;
     align-items: center;
+    gap: 20px;
     background-color: rgb(49, 51, 51);
+    border-radius: 4px;
 }
 
 .main-forum-topic-cards h1 {
     padding-top: 20px;
 }
 
-/* .main-forum-topic-cards .main-forum-cards p{
-    padding-top: 10px;
-    padding-bottom: 20px;
-} */
 
 .main-forum-topic-cards .main-forum-cards .title-main {
     padding-left: 15px;
+    margin: 0px;
     padding-bottom: 24px;
 }
 
@@ -106,7 +107,9 @@
     position: absolute;
     width: 600px;
     /* Make the form wider */
-    padding: 20px;
+    padding: 2px;
+    margin-left: 10px;
+    margin-top: 10px;
     /* Add some padding around the form */
     background-color: #f9f9f9;
     border: 1px solid #ddd;
@@ -163,7 +166,502 @@
     text-decoration: none;
 }
 
-.title-main:hover  {
-    background-color: lightblue ;
+.main-forum-cards:hover  {
+    background-color: rgb(78, 76, 76) ;
     color: black;
 }
+
+.view-discussion-button {
+    background-color: #008CBA; /* Blue color */
+    border: none;
+    color: white; /* White text color */
+    /* padding: 15px 32px; */
+    padding: 5px 10px;
+    margin: auto;
+    text-align: center;
+    margin-left: 10px !important;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    border-radius: 12px; /* Rounded corners */
+  }
+  
+  .view-discussion-button:hover {
+    background-color: white;
+    color: black;
+  }
+  
+
+.forum-topic {
+    transition: transform 0.3s ease;
+}
+
+.forum-topic:hover {
+    transform: scale(1.05);
+}
+
+
+.my-questionss{
+    cursor: pointer;
+}
+
+.my-questions-div{
+    position: absolute;
+    top: 100px;
+    width: 500px;
+    height: 200px;
+    left: 10px;
+    z-index: 9999;
+    display: block; 
+    background-color: #f9f9f9;
+    color: black;
+}
+
+.gym-questions {
+    font-size: 32px;              /* Prominent font size suitable for an h1 */
+    font-weight: 700;             /* Bold for emphasis */
+    color: white;
+    text-align: center;               /* Deep color for elegance and readability */
+    margin-bottom: 25px;          /* Space below the title for separation */
+    border-bottom: 3px solid #3498DB; /* A line beneath for added emphasis, using a complementary color */
+    padding-bottom: 15px !important;         /* Padding between the text and the border */
+    text-transform: capitalize;   /* Capitalizing the first letter of each word */
+    letter-spacing: 0.5px;        /* Slight spacing between letters for a clean look */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* A very subtle shadow for depth */
+    width: 50% !important;
+    padding-bottom: 10px;
+    /* Ensuring good spacing around the h1 */
+}
+
+/* Optional: Hover effect if the header has interactions (like links or buttons) */
+.gym-questions:hover {
+    color: #34495E;               /* A slight variation in color on hover */
+    border-bottom-color: #5DADE2; /* A brighter shade for the border on hover */
+    transition: all 0.3s ease;    /* Smooth transition effect */
+}
+
+
+.gym-questions{
+    padding-top: 20px !important;
+}
+
+.ask-question-element{
+    cursor: pointer;
+    display: inline-block;
+    padding-left: 5px;
+    /* style the element ask a question */
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 140px;
+    margin-left: 10px;
+    border: 1px solid white;
+    padding: 10px;
+    color:#555;
+    text-align: center;
+    border-radius: 20%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* style the font */
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    /* style the element ask a question */
+    margin-top: 5px;
+}
+
+.ask-question-element:hover{
+    background-color: white;
+    color: black !important;
+}
+
+.dropdown-container{
+    width: 240px;
+    margin-bottom: 5px;
+    position: relative;
+}
+
+.dropdown-container button{
+    cursor: pointer;
+    display: inline-block;
+    list-style-type: none;
+    margin-left: 10px;
+    border: 1px solid white;
+    padding: 10px;
+    color:#555;
+    text-align: center;
+    border-radius: 20%;
+    height: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+
+
+/* bar with user profiles */
+.dropdown-container button {
+    cursor: pointer; /* Make it clear that it's clickable */
+    background-color: #181818;
+    border-radius: 6% !important;
+    border: 1px solid white !important; /* A shade of blue */
+    color: white; /* Text color */
+    border: none; /* Remove default borders */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 20px; /* Some padding for spacing */
+    font-size: 16px; /* Font size */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.dropdown-container button:hover {
+    background-color: white;
+    color: black; /* Darker shade of blue on hover */
+}
+
+.dropdown-container button:focus {
+    outline: none; /* Remove focus outline */
+    box-shadow: 0 0 0 2px rgba(0,123,255,0.5); /* Add a light blue focus ring */
+}
+
+.main-forum-profile-users{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    min-height: 100px;
+    gap: 55px;
+    padding-top: 4px;
+    /* width: auto; */
+    margin-bottom: 10px;
+    min-height: auto;
+    border-radius: 20%;
+    margin-top: 15px;
+    background-color: #353434;
+    height: 120px;
+    position: absolute;
+    width: 100%;
+}
+
+.active-dot {
+    width: 10px;
+    height: 10px;
+    background-color: #00B200; /* Green Color */
+    border-radius: 50%; 
+    display: block !important;
+    margin-left: 5px; /* Spacing from the username */
+    display: inline-block;
+    text-align: center;
+    margin: auto;
+}
+
+
+.wrapper-interact{
+    display: flex;
+}
+
+.no-active-users{
+    text-align: center;
+}
+
+.profile-users-gen-name{
+    color: rgb(144, 144, 144);
+    padding-top: 5px;
+    width: 50px;
+    line-height: 15px;
+    font-weight: 3px !important;
+    font-size: 10px;
+    margin-left: 1px;
+    color: white;
+    height: 20px;
+}
+
+
+
+.ask-question-forum{
+    width: 10%;
+    margin-right: 15px;
+}
+
+.profile-user-gen-image{
+    width: 50px;
+    height: 40px;
+    border-radius: 100%;
+    padding-left: 5px;
+    padding-top: 2px;
+    /* margin-right: 10px; */
+    /* margin-top: 6px; */
+    /* margin-left: 6px; */
+    display: block;
+    margin-top: 5px;
+}
+
+
+/* Existing styling for the hover-form */
+.hover-form {
+    position: absolute;
+    width: 460px;
+    padding: 2px;
+    margin-left: 10px;
+    margin-top: 10px;
+    background-color: #353434;
+    border: 1px solid #ddd;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+}
+
+/* Enhanced form styling */
+.hover-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;  /* provides spacing between the elements */
+    padding: 15px;  /* provides internal spacing within the form */
+}
+
+.hover-form input[type="text"],
+.hover-form textarea {
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s, box-shadow 0.3s;  /* smooth transition for focus effect */
+    font-size: 16px;  /* makes the text a bit bigger */
+    outline: none;  /* removes the default browser outline */
+}
+
+.hover-form input[type="text"]:focus,
+.hover-form textarea:focus {
+    border-color: #007BFF;  /* changes border color on focus */
+    box-shadow: 0 0 5px rgba(0,123,255,0.5);  /* adds a subtle shadow when the input or textarea is in focus */
+}
+
+.hover-form button {
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;  /* smooth transition for hover effect */
+    font-size: 16px;
+    font-weight: 600;  /* makes the button text bold */
+}
+
+.hover-form button:hover {
+    background-color: #0056b3;  /* slightly darker shade for the hover effect */
+}
+
+/* css for the buttons on the forum */
+.edit-delete-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    position: relative;
+}
+
+.edit-form-forum input {
+    margin-bottom: 10px;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.edit-form-forum{
+    position: absolute;
+    border-radius: 4%;
+    top: 35px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    padding: 20px;
+    width: 450px;
+    top: 56px;
+    left: -160px;
+    z-index: 1;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    gap: 60px;
+}
+
+/* General button styling */
+.edit-delete-buttons button {
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+/* Edit button */
+.edit-delete-buttons .edit-button {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+
+.edit-delete-buttons .edit-button:hover {
+    background-color: #45a049;
+}
+
+/* Delete button */
+.edit-delete-buttons .delete-button {
+    background-color: #f44336; /* Red */
+    color: white;
+}
+
+.edit-delete-buttons .delete-button:hover {
+    background-color: #da190b;
+}
+
+/* delete form */
+.edit-form-delete {
+    position: absolute;
+    border-radius: 4%;
+    top: 35px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    padding: 5px;
+    width: 300px;
+    top: 56px;
+    left: -100px;
+    z-index: 1;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    gap: 14px;
+    margin-bottom: 20px !important;
+}
+
+.title-main.description{
+    line-height: 20px;
+}
+
+/* iphone view */
+@media (max-width: 400px) {
+    .main-forum-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .main-forum-subnav {
+        flex-direction: column;
+        gap: 10px;
+        padding: 5px;
+    }
+
+    .view-discussion-button{
+        margin-top: 10px;
+    }
+
+    .main-forum-topics h1 {
+        font-size: 16px;
+        padding: 3px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        width: 100%;
+    }
+
+    .main-forum-topic-test1 {
+        padding: 5px;
+        flex-direction: column;
+        gap: 15px;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .ask-question-element{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        cursor: pointer;
+        margin-left: 0px !important;
+    }
+
+    .main-forum-topic-cards {
+        cursor: pointer;
+        flex-direction: column;
+    }
+
+
+    .main-forum-cards {
+        text-align: center;
+    }
+
+    .wrapper-interact{
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+        margin: auto !important;
+        text-align: center !important;
+    }
+
+    .ask-question-forum{
+        margin: 0px !important;
+    }
+
+    .hover-form {
+        margin-top: 0px;
+        left: 40px;
+        width: 80%;
+        padding: 10px;
+    }
+
+    .hover-form input[type="text"],
+    .hover-form textarea {
+        padding: 6px 10px;
+        margin: 4px 0;
+    }
+
+    .ask-question-element{
+        /* margin-top: 10px; */
+        /* margin-bottom: 10px; */
+        cursor: pointer;
+        text-align: center !important;
+    }
+
+    .hover-form form{
+        z-index: 999999 !important;
+    }
+
+    .main-forum-topics{
+        width: 50%;
+    }
+
+    .gym-questions{
+        line-height: 15px;
+        display: block;
+        width: 100% !important;
+    }
+
+    .hover-form button {
+        padding: 7px 10px;
+        margin: 4px 0;
+    }
+
+    .hover-form textarea {
+        height: 100px;
+        padding: 8px 12px;
+        margin: 5px 0;
+    }
+
+    .edit-form-forum{
+        width: 150%;
+        /* margin: auto !important; */
+        align-items: center;
+        margin-left: 120px;
+        top: 28px;
+        margin-top: 0px !important;
+        margin-bottom: 10px !important;
+    }
+
+
+    .my-questions-div{
+        top: 50px;
+        width: 90%;
+        left: 5%;
+    }
+}
+
+

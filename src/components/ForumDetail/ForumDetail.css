@@ -1,7 +1,7 @@
 .forum-detail-main{
     color: white;
     line-height: 15px;
-    height: 80vh;
+    min-height: 80vh;
     display: grid;
     grid-template-columns: minmax(300px, 1fr) minmax(200px, 1fr);
 }
@@ -19,9 +19,12 @@
 .span-detail-section{
     margin-top: 50px !important;
     background-color: #3a3b3c;
-    border-radius: 6%;
+    border-radius: 6px;
     margin: 10px;
-    padding: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 50px;
+    padding-right: 50px;
     width: 80%;
     margin-left: 50px;
     word-wrap: break-word;
@@ -29,10 +32,9 @@
 }
 
 .forum-detail-section{
-    border-radius: 6%;
     margin: 10px;
     padding: 10px;
-    width: 80%;
+    width: 100%;
     margin-left: 50px;
 }
 
@@ -79,7 +81,8 @@
     font-weight: 500;
     padding: 5px;
     border-radius: 10px;
-    margin-left: 150px !important;
+    margin-left: 120px !important;
+    margin-bottom: 20px !important;
 }
 
 .add-comment:hover{
@@ -97,6 +100,12 @@
 .description-comments{
     padding-bottom: 20px;
     padding-left: 8px;
+    line-height: 20px;
+    font-weight: 500;
+    font-size: 16px;
+    margin-bottom: 10px;
+    text-align: left;
+    font-style: Arial, Helvetica, sans-serif;
 }
 
 
@@ -196,6 +205,7 @@
 .add-comment-label {
     text-decoration: none !important;
     border: none;
+    margin-right: 20px;
   }
 
 .add-comment-button{
@@ -221,3 +231,181 @@
 .comments{
     margin-top: 50px;
 }
+
+.forum-title{
+    border-bottom: 2px solid #166ca6;
+    text-align: center;
+    font-size: 30px !important;
+    line-height: 40px;
+    font-weight: 600 !important;
+    margin-top: 5px !important;
+    padding-bottom: 10px !important;
+}
+
+.item-detail-description{
+    margin-bottom: 8px !important;
+    font-size: 16px !important;
+    /* fix the font size and make it beatiful */
+    line-height: 20px;
+    font-weight: 500;
+    text-align: left;
+    font-style: Arial, Helvetica, sans-serif;
+    border-bottom: 1px solid white;
+}
+
+.description-comments{
+    padding-left: 0px !important;
+}
+
+/* description new styles */
+/* Styling for "Description" title */
+.item-detail-description {
+    font-size: 18px; /* Larger font size for clear section headings */
+    font-weight: bold; /* Bold for emphasis */
+    color: white; /* A nice shade of blue-ish gray */
+    margin-bottom: 8px; /* A little space before the actual description */
+    text-transform: uppercase; /* Capital letters for a clean look */
+    letter-spacing: 1px; /* Letter spacing for uppercase text */
+    border-bottom: 2px solid #166ca6; /* A solid line below the heading for clear separation */
+    padding-bottom: 6px; /* Padding so the border doesn't touch the text */
+}
+
+/* Styling for the actual description */
+.description-comments {
+    font-size: 16px; /* Standard text size */
+    color: white; /* A softer gray for reading */
+    line-height: 1.6; /* Good line height for readability */
+    padding: 10px; /* Padding for a touch of space */
+    border-radius: 5px; /* Rounded corners for the content */
+}
+
+.loading-forums-statee{
+    min-height: 76vh;
+    margin-left: 480px;
+}
+
+.forum-comments-section{
+    align-items: center !important;
+}
+
+.no-commentss-yet{
+    margin-left: 230px;
+    margin-bottom: 10px;
+}
+
+/* Apply responsive design for iPhone 12, 13, 14 */
+@media only screen and (max-width: 428px) { /* these devices have a width of 390px (iPhone 12 mini) - 428px (iPhone 12 Pro Max) */
+  
+    .forum-detail-main {
+      grid-template-columns: 1fr;
+      /* min-width: 90vw; */
+      /* margin: auto; */
+    }
+  
+    .span-detail-section, .forum-detail-section {
+      width: 100%;
+      margin-left: 0;
+    }
+  
+    .forum-detail-main h1, .comments h2 {
+      width: 100%;
+    }
+  
+    .add-comment {
+      width: 100%;
+      margin-left: 0;
+    }
+  
+    .no-comments-yet {
+      width: 100%;
+    }
+  
+    .add-comment-form {
+        width: 100%;
+    }
+  
+    .input-section {
+      width: 100%;
+    }
+  
+    .input-section textarea {
+      width: 100%;
+    }
+  
+    .comments-title {
+      margin-left: 0;
+    }
+
+
+  
+    .add-comment-textarea {
+      width: 100%;
+    }
+
+  
+    .submit-comment-button, .input-section button {
+      width: 100%;
+    }
+
+    .description-comments{
+        padding-bottom: 0px;
+    }
+  
+    .comments {
+      width: 70%;
+      margin-left: 60px;
+    }
+
+    .loading-forums-statee{
+        margin-left: -100px;
+    }
+    
+    .add-comment{
+        margin-left: 10px !important;
+        width: 110%;
+        margin-left: -24px !important;
+    }
+
+    .forum-title{
+        margin-bottom: 8px !important;
+    }
+
+    .forum-detail-main{
+        width: 100%;
+        margin-left: 5px;
+    }
+
+    .span-detail-section{
+        margin-top: 10px !important;
+    }
+
+    .forum-title{
+        padding-top: 2px !important;
+        font-size: 24px !important;
+    }
+
+
+    .forum-detail-section{
+        padding: 0px !important;
+        display: block;
+        margin-left: 12px !important;
+        width: 90%;
+        margin: auto;
+        align-items: center;
+        text-align: center;
+        word-wrap: break-word;
+        margin-left: 14px !important;
+    }
+
+    .no-commentss-yet{
+        margin-bottom: 10px;
+        margin-left: 50px;
+        font-size: 16px;
+        font-weight: 500;
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    .span-detail-section{
+    }
+  }
+  

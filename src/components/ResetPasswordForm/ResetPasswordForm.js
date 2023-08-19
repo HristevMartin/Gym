@@ -1,12 +1,16 @@
 export const ResetPasswordForm = ({
     token
 }) => {
+
+    let BASE_URL = process.env.NODE_ENV === "development" ? "http://localhost:5000" : "https://gym-pro-website.herokuapp.com";
+
+
     const [password, setPassword] = useState('');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const response = await fetch('http://localhost:3000/reset-password', {
+        const response = await fetch(`${BASE_URL}/reset-password`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

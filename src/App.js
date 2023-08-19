@@ -58,6 +58,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
 
 
             <Route element={< PrivateRoute />}>
@@ -69,7 +70,6 @@ function App() {
               <Route path="/edit-item/:itemId" element={<EditItem />} />
               <Route path="/programs" element={<Programs />} />
               <Route path="/program-detail/:programId" element={<ProgramDetail />} />
-              <Route path="/forgot-password" element={<ForgotPassword />} />
               <Route path="/test" element={<ScrollTest />} />
               <Route path="/forum" element={<Forum />} />
               <Route path='/forum/:id' element={<ForumDetail />}/>

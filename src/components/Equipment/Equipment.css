@@ -5,7 +5,7 @@
     max-width: 100%;
     box-sizing: border-box;
     background-color: #181818;
-    height: auto;
+    min-height: 80vh;
 }
 
 
@@ -33,13 +33,16 @@
 .main .side-nav {
     text-decoration: none;
     list-style: none;
-    margin-top: 10px;
+    margin-top: 70px;
+    margin-left: 34px;
+    min-height: 60vh;
+    border-radius: 6%;
     line-height: 30px;
-    max-width: 30%;
-    padding-left: 3%;
+    background-color: #272626;
     max-width: 100%;
     overflow: hidden;
-    width: 400px;
+    padding: 10px 16px;
+    width: 450px;
 }
 
 .main .side-nav .side-list {
@@ -61,6 +64,21 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.card-items-globall{
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 80%;
+    min-height: 70vh;
+    margin: auto;
+    gap: 20px;
+    height: auto;
+    background-color: #272626;
+    align-content: flex-start;
+    padding: 20px;
+    border-radius: 6%;
+}
+
 .card-items-global {
     margin-top: 16px;
     margin-left: 20px;
@@ -68,15 +86,11 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: flex-start;
-
     max-width: 100%;
-    width: 100%;
+    width: auto !important;
     gap: 10px;
-
     flex-direction: row;
-
-    height: 94%;
-
+    height: auto;
     align-content: flex-start;
 }
 
@@ -89,18 +103,24 @@
     height: 3%;
     align-items: center !important;
     margin-top: 10px;
+    margin-bottom: 14px;
 }
 
 .side-text-global .side-text p {
     margin-right: 10px;
 }
 
+
+/* from here commenting */
+
 .side-text-global .card-items {
-    max-height: 70%;
     background-color: lightslategray;
     border-radius: 6px;
-    height: 320px !important;
+    height: 290px !important;
+    width: 150px !important;
 }
+
+
 
 .side-text-global .sorter-label {
     display: inline-block;
@@ -152,16 +172,16 @@
 }
 
 
-
-
-
 .card-items-global .side-text {
     align-items: flex-start;
 }
 
 
+
+
 .card-items-global .card-items .card-items-image {
     height: 60%;
+    width: 100%;
 }
 
 .card-items-global .card-items img {
@@ -199,6 +219,32 @@
 .card-items-global .card-text p {
     color: black;
     display: inline-block;
+    padding: 0px;
+    margin: 0px;
+}
+
+.equipment-no-product-found {
+    font-size: 18px;
+    color: white;  /* muted color */
+    font-weight: 500; /* medium font weight */
+    text-align: center; /* center the text */
+    padding: 50px 0; /* give some vertical space */
+    border-radius: 8px; /* rounded corners */
+    margin: 20px 0; /* margin for separation from surrounding elements */
+}
+
+.equipment-no-product-found:hover {
+    color: #5a5a5a;  /* darken the text a bit on hover for a little interaction */
+}
+
+
+.card-items-globall-spiner{
+    display: block;
+    margin: auto;
+    width: 50%;
+    text-align: center;
+    /* style it professionaly the text no products found */
+    
 }
 
 .card-items-global .card-text button {
@@ -306,21 +352,214 @@ input[type="checkbox"] {
     }
 } */
 
+.card-items-product-img-picture{
+    width: 100%;
+    height: 100%;
+    object-fit: contain !important;
+    object-position: center;
+    border-bottom: 1px solid black;
+}
+
+.card-text {
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    padding: 5px;
+    max-width: 400px;
+    font-family: 'Arial', sans-serif;
+}
+
+.product-name {
+    font-size: 14px;
+    color: #2c3e50;
+    padding: 1px;
+    border-bottom: 2px solid #272626;
+}
+
+.product-location {
+    padding-top: 5px !important;
+    font-size: 14px;
+    padding: 1px;
+    padding-left: 0px;
+    margin-left: 0px !important;
+    color: #7f8c8d;
+
+    /* margin-bottom: 10px; */
+}
+
+.product-price {
+    padding: 1px;
+    font-size: 14px;
+    color: #27ae60;
+    /* font-weight: bold; */
+}
+
+.card-items .card-text button{
+    padding-top: 5px !important;
+    margin-bottom: -16px;
+}
+
+.card-textt-info{
+    min-height: 110px;
+}
+
+.classNameCard {
+    display: flex;
+    justify-content: center; /* Centers items on the horizontal axis */
+    align-items: center;     /* Centers items on the vertical axis */
+    height: 100%;            /* You may need a specific height if it's not already set */
+}
+
+
+.equipment-category{
+    margin-bottom: -10px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+
+.card-button{
+    margin-bottom: 0px !important;
+}
+
+/* Base styling for the card */
+.card-itemss {
+    margin-left: 5px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+    width: 250px; 
+    background-color: #f7f7f7;
+}
+
+.card-itemss:hover {
+    box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card-items-imagee {
+    width: 100%;
+    height: 170px;
+    overflow: hidden;
+}
+
+.card-items-product-img-picturee {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+.card-items-imagee:hover .card-items-product-img-picturee {
+    transform: scale(1.1);
+}
+
+.card-textt {
+    padding: 10px;
+    background-color: #f7f7f7;
+}
+
+.product-namee, .product-locationn, .product-pricee {
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #333;
+}
+
+.product-namee {
+    font-weight: 600;
+}
+
+
+.card-buttonn {
+    width: 50%;
+    margin: 0 auto;
+    display: block;
+    background-color:  #3498DB; 
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.card-buttonn:hover {
+    color: #272626;
+    background-color:  #3498DB;
+    animation: bounce 0.9s;
+}
+
+.view-more-equipment {
+    text-decoration: none;
+    color: white;
+    padding-bottom: 8px; 
+}
+
+.view-more-equipment:hover {
+    text-decoration: underline;
+    text-decoration: none;
+}
+
+.view-all-products{
+    margin-top: 34px !important;
+}
 
 @media (max-width: 768px) {
     /* Apply to devices with width less than or equal to 768px */
 
+
+
+    .equipment-category{
+        text-align: center !important;
+        align-items: center !important;
+    }
 
     .main {
         flex-direction: column;
         align-items: start;
     }
 
+    .view-all-products{
+        text-align: center;
+    }
+
+    .filter-products{
+        text-align: center !important;
+    }
+
+    .filtering-by{
+        text-align: center !important;
+    }
+
     .main .side-nav {
         width: 100%;
         padding-left: 0;
+        text-align: center;
+        margin: auto;
+        width: 50%;
     }
 
+    .side-nav{
+        margin: auto !important;
+        text-align: center !important;
+    }
+
+    .filter{
+        text-align: center !important;
+    }
 
     .main .side-nav {
         width: 100%;
@@ -333,19 +572,46 @@ input[type="checkbox"] {
         margin-left: 0px;
     }
 
-
     .card-items-global .card-items {
         width: 100%;
         flex: 0 0 50%;
     }
 
+    button.card-button{
+        margin-top: 0px !important;
+        height: 30px !important;
+
+    }
+
+    .view-more-equipment{
+        padding: 0px;
+        text-align: center !important;
+        display: inline-block !important;
+    }
+
+    .view-more-equipment:hover{
+        color: #181818 !important;
+    }
 
     .card-items {
         max-width: 100%;
         width: 100%;
         margin-bottom: 2em;
         height: auto;
+    }
 
+    .card-button{
+        margin: 0px !important;
+        font-size: 12px !important;
+        height: 10% !important;
+        margin-bottom: 4px !important;
+        text-align: center !important;
+        vertical-align: middle !important;
+    }
+
+    .card-button a{
+        padding: 0px !important;
+        padding-bottom: 5px !important;
     }
 
     .card-items .card-items-image {
@@ -354,6 +620,9 @@ input[type="checkbox"] {
 
     .card-items img {
         height: auto;
+    }
+    .card-items-globall{
+        grid-template-columns: 1fr;
     }
 
     .card-items .card-text {
@@ -368,4 +637,6 @@ input[type="checkbox"] {
         height: 50px;
         bottom: -15px;
     }
+
+
 }

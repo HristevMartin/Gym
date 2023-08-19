@@ -8,6 +8,7 @@ import useNotificationContext from '../../context/NotificationContext';
 
 export const Register = () => {
 
+
     const { addNotification } = useNotificationContext();
 
     const navigate = useNavigate();
@@ -16,8 +17,6 @@ export const Register = () => {
         e.preventDefault();
 
         let { email, password, secondPassword } = Object.fromEntries(new FormData(e.currentTarget))
-
-        console.log(email, password, secondPassword)
 
         if (!email || !password || !secondPassword) {
             addNotification('All fields are required!', 'danger')
@@ -29,13 +28,13 @@ export const Register = () => {
             return;
         }
 
-        // check if password is at least 8 characters long
         if (password.length < 8) {
             addNotification('Password must be at least 8 characters long!', 'danger')
             return;
         }
 
-        await register(email, password)
+
+        await register(email, password, addNotification)
 
         navigate('/login')
     }
@@ -58,8 +57,8 @@ export const Register = () => {
                             <Form.Label>Confirm Password</Form.Label>
                             <Form.Control name='secondPassword' type="password" placeholder="Password" />
                         </Form.Group>
-
-                        <div className="text-center">
+                        <label style={{'color':'white', 'lineHeight': '20px', 'textAlign': 'center'}}>Password must be at least 8 characters/digits long! </label>
+                        <div className="text-center-register">
                             <Button variant="primary" type="submit" className="btn-sm">
                                 Submit
                             </Button>

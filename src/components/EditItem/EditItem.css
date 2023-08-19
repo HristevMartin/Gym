@@ -8,6 +8,20 @@
     border-radius: 5px;
 }
 
+.uploadButtonn{
+    margin-top: 10px;
+    background-color: #3498db;
+    color: #ffffff;
+    border: none;
+    width: 100%;
+    margin-left: 0px;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+
 
 @media screen and (max-width: 600px) {
     .body .card form {

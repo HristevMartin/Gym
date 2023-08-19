@@ -58,14 +58,14 @@ export const Header = (props) => {
         <>
             <li><a href="/equipment">Gym Equipment</a></li>
             <li><a href="/upload-item">Create Item</a></li>
-            <li>
+            {/* <li>
                 <div onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
                     <a href="/programs">Programs</a>
 
                     {showPrograms ? programsSection : null}
                 </div>
 
-            </li>
+            </li> */}
             <li><a href="/logout">Log Out</a></li>
             <li>
                 <a href="/forum">Forum</a>
@@ -81,24 +81,9 @@ export const Header = (props) => {
         "border-bottom": className ? '1px solid lightblue' : 'none',
     };
 
-    if (height) {
-        navStyle['height'] = '10%';
-    } else {
-        navStyle['height'] = '10%';
-    }
-
-    if (headerBorder) {
-        navStyle['border-bottom'] = '1px solid white';
-    } else if (className) {
-        navStyle['border-bottom'] = '1px solid lightblue';
-    } else {
-        navStyle['border-bottom'] = 'none';
-    }
-
-
     return (
         <header className="header" style={navStyle}>
-            <h2>FitPro Gym</h2>
+            <h2 style={{'lineHeight': '15px', 'width':'100px','fontWeight':'50px','fontSize':'20px'}} className='gym-hub' >Gym Hub</h2>
             <nav className="navigation">
                 <ul className="list">
                     <li><a href="/">Home</a></li>
@@ -114,7 +99,7 @@ export const Header = (props) => {
             </nav>
 
             {
-                user.token ? <a className='profile-logo' href='/profile'><FontAwesomeIcon style={{
+                user.token ? <a className='profile-logo' href='/profile'><FontAwesomeIcon className='logo-profiler' style={{
                     'color': '#fff', 'margin-right': '20px', 'font-size': '1.2em'
                 }}
                     icon={faUser} /></a>

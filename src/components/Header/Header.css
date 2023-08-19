@@ -4,7 +4,12 @@
     align-items: center;
     margin-right: auto;
     line-height: 0px;
-    height: 30%;
+    border-bottom: 2px solid  #3498DB !important;
+    height: 10% !important;
+}
+
+.header:hover{
+    border-bottom-color: #999 !important;
 }
 
 .header h2 {
@@ -39,6 +44,14 @@
 .navigation .list a {
     color: white;
     text-decoration: none;
+}
+
+.navigation .list a:hover{
+    color:  #3498DB;
+}
+
+.gym-hub:hover{
+    color: #3498DB;
 }
 
 .programs-overview{
@@ -89,6 +102,10 @@
     margin-top: 20px;
 }
 
+.logo-profiler:hover{
+    color: #3498DB !important;
+}
+
 
 /* responsive */
 @media screen and (max-width: 480px) {
@@ -130,6 +147,14 @@
         justify-content: center;
     }
 
+    .gym-hub{
+        margin: auto !important;
+        align-items: center !important;
+        display: block;
+        margin-top: 10px !important;
+        margin-bottom: 10px !important;
+    }
+
     nav.navigation{
         display: inline-block;
         width: 80%;
@@ -139,8 +164,8 @@
     }
 
     .profile-logo{
-        padding-top: 10px;
-        margin-bottom: 10px;
-        margin-left: 30px;
+        padding-top: 14px;
+        margin-bottom: 15px;
+        margin-left: 25px;
     }
 }

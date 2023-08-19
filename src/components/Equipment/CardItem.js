@@ -1,34 +1,28 @@
 import React from 'react';
-import { useState } from 'react';
-import { Spinner } from '../Spinner/Spinner.js';
-
 
 const CardItem = ({ product }) => {
+
   let imageUrl = product.image_url_path
 
-
-  const BASE_URL = process.env.NODE_ENV === "development" ? "http://localhost:5000" : "https://gym-pro-website.herokuapp.com";
-
   return (
-    <div className="card-items">
-      <div className="card-items-image">
-        <img style={{ 'background-color': 'white' }}
-          src={`${imageUrl}`}
-          alt={product.name}
+    <div className="card-itemss">
 
-        />
+      <div className="card-items-imagee">
+        <img  className='card-items-product-img-picturee'
+          src={`${imageUrl}`}/>
       </div>
 
-
-
-      <div className="card-text">
-        <h1>Name: {product.name}</h1>
-        <p>Price:</p>
-        <p>{product.price}£</p>
-        <button className='card-button'>
-          <a href={`/item-details/${product.item_id}`}>View More</a>
+      <div className="card-textt">
+        <div className='card-textt-info'>
+        <p className="product-namee">Product: {product.name}</p>
+        <p className="product-locationn">Location {product.location}</p>
+        <p className="product-pricee">Price: {product.price}£</p>
+        </div>
+        <button className='card-buttonn'>
+          <a className='view-more-equipment' href={`/item-details/${product.item_id}`}>View More</a>
         </button>
       </div>
+
     </div>
   );
 };

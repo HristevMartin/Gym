@@ -1,10 +1,19 @@
 .card-details {
   margin: auto;
+  position: relative;
+  min-height: 77vh;
   width: 70%;
 }
 
-.product-view {
-  margin-left: 100px;
+.card-details .spinner {
+  position: absolute;
+  top: 20%;
+  left: 26%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  /* Ensures it's above other content */
+  /* Optional: For a background overlay */
+  background-color: rgba(255, 255, 255, 0.8);
 }
 
 .product-view {
@@ -33,45 +42,63 @@ span.product-sku {
 
 
 .product-main {
-  margin-left: 25px;
-  margin-right: 15px;
   width: 96%;
   margin-top: 10px;
   display: flex;
-  gap: 20px;
+  gap: 35px;
+  justify-content: center;
   max-width: 100%;
   height: 300px;
   margin-bottom: 10px;
 }
 
 .product-main .product-img {
-  width: 60%;
+  width: 50%;
 }
 
 img.product-img-picture {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  border-radius: 5px;
+  object-fit: contain;
+  border-radius: 5%;
+}
+
+.span.title-comment-item-detail{
+  margin-top: 11px !important;
 }
 
 .product-main .product-main-info {
   line-height: 15px;
-  width: 100%;
+  background-color: #2a2a2a;
+  border-radius: 10%;
+  width: 50%;
+}
+
+.card-text-p-element {
+  line-height: 30px;
+  font-size: 16px;
+  font-weight: 600px;
+  font-family: 'Arial';
+  padding: 10px 15px;
+}
+
+.total-reviews {
+  margin-top: 6px;
+  font-size: 12px;
 }
 
 
 .product-main .product-main-info .price-wrapper {
-
   color: white;
   line-height: 15px;
   margin-bottom: 20px;
   margin-left: 10px;
-
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   font-size: 20px;
-
+  margin-top: 30px;
   font-weight: bold;
-
 }
 
 .product-main .product-main-info .price-wrapper .price-title {
@@ -103,16 +130,41 @@ img.product-img-picture {
 }
 
 .product-main .product-main-info .card-text button:last-child {
-
   background-color: red;
 }
 
+.price-wrapper-details {
+  display: flex;
+  flex-direction: row;
+}
+
+.card-text {
+  color: white;
+  padding: 0px;
+  margin-left: 9px;
+  width: 100% !important;
+  height: auto;
+  overflow-wrap: break-word;
+  line-height: 20px !important;
+}
+
+.product-name-card-details {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  padding: 15px;
+  padding-left: 0px;
+  display: block;
+  width: 200px;
+  margin: auto;
+  width: 50%;
+  text-align: center;
+}
 
 .product-information {
-  height: 180px;
+  /* height: 220px; */
   line-height: 15px;
   color: white;
-  margin-left: 23px;
 }
 
 .product-information h2 {
@@ -132,25 +184,465 @@ img.product-img-picture {
 .product-information .attributes-container {
   margin-top: 5px;
   display: flex;
-  gap: 20px;
-  justify-content: center;
-  align-items: center;
+  width: auto;
+  gap: 10px;
+}
+
+.card-details-product-information {
+  padding-top: 15px !important;
 }
 
 .product-information .attributes-container ul {
-  width: 40%;
+  width:40%;
 }
 
 .product-information .attributes-container li {
   margin-bottom: 10px;
+  white-space: nowrap; 
 }
 
 .product-information .attributes-container li {
   font-weight: bold;
   margin-right: 10px;
-  background-color: grey;
+  background-color: #2a2a2a;
   padding: 15px;
 }
+
+.detail-enter-name {
+  /* style it accordingly */
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  color: black;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.detail-submit-button {
+  /* style the button accordingly */
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid grey;
+  width: 20%;
+  height: 100%;
+  color: black;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.detail-submit-button:hover {
+  background-color: rgb(94, 93, 93);
+  color: white;
+}
+
+/* comment section */
+.comments-wrapper {
+  margin-top: 20px;
+  background-color: #2a2a2a;
+  backdrop-filter: blur(5px);
+  /* white with 10% opacity */
+  padding: 20px;
+
+  border-radius: 8px;
+}
+
+.comment-item-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.comment-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.title-comment-item-detail {
+  width: 100%;
+  /* break the text on multiple lines */
+  word-break: break-all;
+  line-height: 20px;
+}
+
+.buttons-comment-item-detail {
+  display: flex;
+  justify-content: right;
+  /* width: 100%; */
+}
+
+.btn-edit,
+.btn-delete {
+  margin-left: 8px;
+  /* spacing between buttons and comment */
+  background-color: #f5f5f5;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-edit:hover {
+  background-color: #4caf50;
+}
+
+.btn-delete:hover {
+  background-color: #f44336;
+}
+
+.comment-item-edit {
+  color: white;
+}
+
+
+.liked {
+  color: blue;
+}
+
+
+.toggle-comments-btn {
+  background-color: #2a2a2a;
+  color: white;
+  padding: 22px 20px;
+  border: none;
+  display: block;
+  cursor: pointer;
+  margin: left auto;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-comments-btn:hover {
+  background-color: #454545;
+}
+
+.comments-section {
+  margin-top: 15px;
+}
+
+.comment-input {
+  width: 80%;
+  margin: auto;
+  display: block;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: vertical;
+  min-height: 80px;
+}
+
+
+
+textarea {
+  line-height: normal;
+  /* or any other value that works for your design */
+}
+
+.submit-comment-btn {
+  display: block;
+  margin-top: 10px;
+  margin-left: 98px;
+  background-color: #2a2a2a;
+  color: white;
+  padding: 12px 16px;
+  border: 1px solid white;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.submit-comment-btn:hover {
+  background-color: #454545;
+}
+
+.comments-list {
+  margin-top: 20px;
+  list-style-type: none;
+  width: 50%;
+  margin: auto;
+  padding-left: 0;
+}
+
+.comments-info-item-detail {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* edit button section */
+
+.edit-comment-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.edit-comment-item-detail {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.edit-comment-item-detail form {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.edit-comment-item-detail input {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.btn-edit-cancel {
+  margin-left: 10px;
+}
+
+/* styling buttons  */
+/* General button styles */
+button {
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+  outline: none;
+  margin: 5px;
+}
+
+/* Specific button colors and effects */
+.btn-edit,
+.btn-delete {
+  background-color: #2C3E50;
+  /* Dark blue color */
+  color: white;
+}
+
+.btn-edit:hover,
+.btn-delete:hover {
+  background-color: #34495E;
+  /* Slightly darker blue on hover */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+  /* subtle lift effect on hover */
+}
+
+.btn-edit:active,
+.btn-delete:active {
+  transform: translateY(0);
+  /* Resets the lift effect when pressed */
+}
+
+.edit-comment button[type='submit'] {
+  background-color: #27AE60;
+  /* Green for submit */
+  color: white;
+}
+
+.edit-comment button[type='submit']:hover {
+  background-color: #2ECC71;
+  /* Slightly darker green on hover */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+  /* subtle lift effect on hover */
+}
+
+.edit-comment button[type='submit']:active {
+  transform: translateY(0);
+  /* Resets the lift effect when pressed */
+}
+
+/* If you want a "cancel" button too, here's a style */
+.btn-edit-cancel {
+  background-color: #E74C3C;
+  /* Red for cancel */
+  color: white;
+}
+
+.btn-edit-cancel:hover {
+  background-color: #C0392B;
+  /* Slightly darker red on hover */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+  /* subtle lift effect on hover */
+}
+
+.btn-edit-cancel:active {
+  transform: translateY(0);
+  /* Resets the lift effect when pressed */
+}
+
+/*  */
+
+
+
+.comment-item {
+  padding-left: 5px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  /* padding: 20px 25px; */
+  border: 1px solid #eee;
+  border-radius: 5px;
+  background-color: #fafafa;
+}
+
+.like-dislike:hover {
+  color: white;
+  background-color: #454545;
+}
+
+.like-dislike-buttons {
+  margin-bottom: 25px;
+}
+
+.like-dislike-buttons {
+  display: flex;
+  gap: 5px;
+  margin-top: 10px;
+  color: white;
+  line-height: 15px;
+}
+
+.comment-item:first-child {
+  margin-top: 15px;
+}
+
+/* thumbs up */
+/* Style for the number (like count) next to thumbs-up emoji */
+.item-detail-like-count {
+  font-size: 16px;
+  /* Set the font size for the number */
+  color: #2c3e50;
+  height: 36px;
+  margin-top: 5px;
+  /* Dark blue color, adjust to your theme */
+  background-color: #ecf0f1;
+  /* Light gray background for emphasis */
+  padding: 3px 8px;
+  /* Padding to give the number some breathing space */
+  border-radius: 4px;
+  /* Rounded corners for a more polished look */
+  margin-left: 8px;
+  /* Some space between the thumbs-up emoji and the number */
+  transition: background-color 0.3s, color 0.3s;
+  /* Smooth transition for hover effects */
+  display: inline-flex;
+  /* Helps with center alignment */
+  align-items: center;
+  /* Vertically aligns text within the padded area */
+  justify-content: center;
+  /* Horizontally aligns text within the padded area */
+}
+
+/* Hover effect for the number for a more interactive feel */
+.item-detail-like-count:hover {
+  background-color: #bdc3c7;
+  /* Slightly darker gray background on hover */
+  color: #ffffff;
+  /* White text when hovered */
+}
+
+.comment-and-delete {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.comment-and-delete-actions {
+  padding-bottom: 50px;
+}
+
+.confirm-delete {
+  position: absolute;
+  z-index: 90;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  bottom: 46px;
+  right: 3px;
+  background-color: #f8f8f8;
+  /* You can set this to match your design */
+  padding: 10px;
+  box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
+  /* Optional */
+}
+
+/* buttons */
+.confirm-delete {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  margin: 10px 0;
+}
+
+.buttons-modify {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  height: 20px;
+  margin-top: 4px;
+}
+
+.confirm-delete p {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.deleteit,
+.donotdeleteit {
+  padding: 5px 15px;
+  margin: 0 5px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.deleteit {
+  background-color: #d9534f;
+  /* Red */
+  color: #ffffff;
+}
+
+.deleteit:hover {
+  background-color: #c9302c;
+  /* Darker red on hover */
+}
+
+.donotdeleteit {
+  background-color: #5bc0de;
+  /* Blue */
+  color: #ffffff;
+}
+
+.donotdeleteit:hover {
+  background-color: #31b0d5;
+  /* Darker blue on hover */
+}
+
+
 
 @media only screen and (max-width: 600px) {
   .card-details {
@@ -168,13 +660,37 @@ img.product-img-picture {
     padding-top: 0px;
     margin-top: 0px;
     margin-bottom: 0px;
+    margin-left: 5px;
   }
+
+  .product-img-picture {
+    margin-right: 35px !important;
+  }
+
+  .product-info-top {
+    margin-top: 0px;
+    padding: 5px;
+  }
+
+  .card-details .spinner {
+    left: -100px;
+  }
+
+  .product-information .attributes-container li{
+    white-space: wrap;
+  }
+
 
   .product-main .product-img {
     width: 60%;
   }
 
-  .card-details .product-information{
+  .comments-wrapper{
+    width: 100%;
+    margin: auto;
+  }
+
+  .card-details .product-information {
     margin-top: 10px;
     margin-left: 0px;
     margin-right: 0px;
@@ -183,11 +699,129 @@ img.product-img-picture {
     height: 100%;
   }
 
-  .card-details .product-information h2{
+  .card-details .product-information h2 {
     width: 100%;
     align-items: center;
     margin-left: 80px;
     margin-bottom: 10px;
   }
+
+  .card-details-product-information {
+    margin-left: 10px !important;
+  }
+
+  .card-text-p-element {
+    padding: 10px 15px;
+    text-align: left;
+  }
+
+  .product-img {
+    display: block;
+    text-align: center !important;
+    margin-left: 60px;
+  }
+
+  .comments-info-item-detail {
+    flex-direction: column;
+  }
+
+  .comments-info-item-detail {
+    flex-direction: column;
+  }
+
   
+
+  .toggle-comments-btn {
+    line-height: 20px;
+  }
+
+  .attributes-container {
+    flex-direction: column;
+    width: 500px !important;
+    margin-left: 90px !important;
+  }
+
+
+
+  .attributes-container ul li span {
+    line-height: 30px;
+  }
+
+  .price-wrapper {
+    margin-top: 10px !important;
+    margin-bottom: 0px !important;
+  }
+
+  .product-name-card-details {
+    padding-bottom: 0px !important;
+    margin-bottom: 15px !important;
+  }
+
+
+  .product-main .product-main-info {
+    margin-right: 30px !important;
+    width: auto !important;
+    max-width: 80%;
+    margin-left: 0px;
+    text-align: center;
+    margin-top: 10px !important;
+    align-items: center !important;
+    flex-basis: 3em;
+    width: 100% !important;
+    margin: auto;
+  }
+
+  .edit-comment-wrapper {
+    flex-direction: column !important;
+  }
+
+  .edit-comment-item-detail {
+    margin-bottom: 10px;
+  }
+
+  .edit-comment-item-detail form {
+    justify-content: center !important;
+  }
+
+  .buttons-comment-item-detail{
+    flex-direction: column !important;
+  }
+
+  .comment-item{
+    text-align: left;
+    margin: 0px !important;
+  }
+
+  .comments-list{
+    width: 90% ;
+    margin: 0px;
+    margin: auto;
+  }
+
+  .buttons-modify{
+    padding-bottom: 10px !important;
+  }
+
+  .card-text{
+    margin-left: 0px;
+  }
+
+  .comments-info-item-detail{
+    gap: 0px;
+  }
+
+  .toggle-comments-btn{
+    padding: 10px;
+  }
+
+  .confirm-delete{
+    top: -140px;
+    line-height: 25px;
+    height: 100px;
+  }
+
+  .deleteit, .donotdeleteit{
+    padding-bottom: 20px;
+  }
+
 }

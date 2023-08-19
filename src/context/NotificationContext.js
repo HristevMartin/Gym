@@ -26,7 +26,7 @@ export const NotificationProvider = ({ children }) => {
     }, []);
 
     return (
-        <NotificationContext.Provider value={{notification, addNotification, hideNotification }}>
+        <NotificationContext.Provider  value={{notification, addNotification, hideNotification }}>
         {children}
         </NotificationContext.Provider>
     )

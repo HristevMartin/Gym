@@ -1,11 +1,9 @@
-export const register = async (email, password) => {
+
+export const register = async (email, password, addNotification) => {
 
     const BASE_URL = process.env.NODE_ENV === "development" ? "http://localhost:5000" : "https://gym-pro-website.herokuapp.com";
 
     let body = { email, password }
-
-
-    console.log('BASE URL for register is ', BASE_URL)
 
     const request = await fetch(`${BASE_URL}/register`, {
         method: 'POST',
@@ -18,10 +16,12 @@ export const register = async (email, password) => {
 
 
     if (request.status === 400) {
-        alert('Email already exists!')
+        console.log('been here')
+        addNotification('Check the fields and try again!', 'danger')
+    }else if(request.status === 401){
+        addNotification('Email already exists! Please log in!', 'danger')
     }
     if (!request.ok) {
-        // raise an error
         const error = await request.json();
         alert(error.message)
         throw new Error(error.message);
@@ -29,10 +29,9 @@ export const register = async (email, password) => {
 
 
     if (request.status === 201) {
-        console.log('been here')
+        addNotification('Registered successfully!', 'success')
     }
 }
-
 
 
 export const loginToServer = async (email, password) => {
@@ -49,12 +48,9 @@ export const loginToServer = async (email, password) => {
 
 
     if (!request.ok) {
-        alert('Invalid credentials')
         return false;
     } else if (request.status === 400) {
-        alert('Invalid credentials')
         return false
-        
     }
 
     if (request.status === 200){

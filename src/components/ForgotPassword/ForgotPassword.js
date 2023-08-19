@@ -4,10 +4,10 @@ import { Form, Button } from 'react-bootstrap';
 import { useState } from 'react';
 import './ForgotPassword.css';
 import { useNavigate } from 'react-router-dom';
+import useNotificationContext from '../../context/NotificationContext';
 
 
 export const ForgotPassword = () => {
-
     const BASE_URL = process.env.NODE_ENV === "development" ? "http://localhost:5000" : "https://gym-pro-website.herokuapp.com";
 
     let navigate = useNavigate();
@@ -16,6 +16,7 @@ export const ForgotPassword = () => {
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState(null);
 
+    const {addNotification} = useNotificationContext();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -23,18 +24,15 @@ export const ForgotPassword = () => {
         setError(null);
         setMessage(null);
 
-
-
         const { email } = Object.fromEntries(new FormData(e.target));
 
         if (!email) {
-            setError('Email is required');
+            addNotification('Please enter an email', 'danger')
             setLoading(false);
             return;
         }
 
         try {
-            console.log('shitt')
             console.log(`BASE_URL is: ${BASE_URL}`);
             let request = await fetch(`${BASE_URL}/forgot-password`, {
                 method: 'POST',
@@ -78,7 +76,9 @@ export const ForgotPassword = () => {
                     <Form.Control className='big-input' name='email' type="email" placeholder="Enter email" />
                 </Form.Group>
                 <Button variant="primary" type="submit" className='big-button' disabled={loading}>
-                    {loading ? 'Loading...' : 'Send password reset email'}
+                    {loading ? 'Loading...' :
+                        <p style={{'margin-right': '50px'}}> Send password reset email</p>}
+                        
                 </Button>
             </Form>
             {error && <p style={{ 'color': 'white' }} className='error-message'>{error}</p>}
@@ -86,5 +86,6 @@ export const ForgotPassword = () => {
         </div>
     )
 }
+
 
 export default ForgotPassword;

@@ -10,7 +10,22 @@ export const getGymItems = async () => {
     return response
 }
 
-export default getGymItems;
+export const getSingleItemDashboard = async (itemId) => {
+    const BASE_URL = process.env.NODE_ENV === "development" ? "http://localhost:5000" : "https://gym-pro-website.herokuapp.com";
+
+    const request = await fetch(`${BASE_URL}/single-gym-item/${itemId}`, {
+        method: 'GET',
+    })
+    if (request.ok){
+        const response = await request.json();
+        return response
+    }
+}
+
+// export { getSingleItemDashboard, getGymItems };
+
+
+// export default getGymItems;
 
 export const getSingleItem = async (token) => {
 

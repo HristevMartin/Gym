@@ -3,6 +3,7 @@ import { getSingleItem } from '../../services/getServices';
 import { useAuth } from '../../context/AuthContext';
 import { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import useNotificationContext from '../../context/NotificationContext';
 
 
 export const Profile = () => {
@@ -11,11 +12,17 @@ export const Profile = () => {
 
     const { user } = useAuth();
 
+    const [loading, setIsLoading] = useState(true);
+
+    const [loadingProfileInfo, setIsLoadingProfileInfo] = useState(true);
+
     let [items, setItem] = useState([]);
 
     const [selectedFile, setSelectedFile] = useState(null);
 
     const [refreshProfile, setRefreshProfile] = useState(false);
+
+    const { addNotification } = useNotificationContext();
 
     const [isEditFormVisible, setIsEditFormVisible] = useState(false);
 
@@ -43,6 +50,7 @@ export const Profile = () => {
             })
             const profileres = await data.json();
             setProfile(profileres);
+            setIsLoadingProfileInfo(false);
 
         }
         getProfile();
@@ -111,7 +119,8 @@ export const Profile = () => {
 
 
             if (response.status === 201) {
-                alert('Profile updated successfully');
+                // add notification success
+                addNotification('Profile updated successfully', 'success');
                 setRefreshProfile(current => !current);
 
             } else {
@@ -138,6 +147,7 @@ export const Profile = () => {
                 (response) => {
                     if (response) {
                         setItem(response)
+                        setIsLoading(false);
                     }
                 }
             )
@@ -157,7 +167,7 @@ export const Profile = () => {
             if (data.success) {
                 // Remove the item from the items state
                 setItem(items => items.filter(item => item.item_id !== itemId));
-                alert('Item deleted successfully');
+                addNotification('Item deleted successfully', 'success');
             } else {
                 // Handle error here
                 console.log(data.message);
@@ -171,46 +181,52 @@ export const Profile = () => {
 
     }
 
+    const editFormClassName = `edit-form ${profile.image ? 'user-has-picture-form' : 'user-no-picture-form'}`;
+    const editFormContainerClassName = `main2 ${profile.image ? 'visible' : 'hidden'}`;
+
 
     return (
 
         <section class="card-container" ref={cardContainerRef}>
-            <div class="header">
-                <div className="profile-content">
-
-                    {
-                        profile
-                            ?
-                            <>
-                                <h2 className='profile-information-heading'>Profile Information: </h2>
-                                {
-                                    profile.image
-                                        ?
-                                        <>
-                                            <img className='profile-image' src={profile.image} />
-                                            <p>Name: {profile.name}</p>
-                                            <p>Location: {profile.location}</p>
-                                            <p>Hobby: {profile.hobby}</p>
-                                        </>
-                                        :
-                                        <>
-                                            <img src={profile.name} />
-                                            <p>Name: {profile.name}</p>
-                                            <p>Location: {profile.location}</p>
-                                            <p>Hobby: {profile.hobby}</p>
-                                        </>
-                                }
-                            </>
-                            :
-                            <p>No Profile info yet</p>
-                    }
-
-                    <button style={{ 'backgroundColor': 'white', 'width': '55px', 'color': 'black' }} onClick={() => setIsEditFormVisible(true)}>Edit</button>
-                </div>
-
+            <div class="header-profile">
+                {
+                    loadingProfileInfo ?
+                        <p className='profile-loading-heading'>Loading...</p>
+                        :
+                        <div className="profile-content">
+                            {
+                                profile ?
+                                    <>
+                                        {
+                                            profile.image || profile.name || profile.location || profile.hobby ?
+                                                <>
+                                                    <div className='profile-info-side user-has-picture'>
+                                                        <h2 className='profile-information-heading'>Profile Information: </h2>
+                                                        <img className='profile-image' alt='No Image' src={profile.image} />
+                                                        <p>Name: {profile.name}</p>
+                                                        <p>Location: {profile.location}</p>
+                                                        <p>Hobby: {profile.hobby}</p>
+                                                        <button style={{ 'backgroundColor': 'white', 'width': '55px', 'color': 'black', 'cursor': 'pointer' }} onClick={() => setIsEditFormVisible(true)}>Edit</button>
+                                                    </div>
+                                                </>
+                                                :
+                                                <>
+                                                    <div className='new-user-info user-has-picture'>
+                                                        <h1 className="notification-popup">Do you want to put a profile Information?
+                                                            <button className='personal-information-button-we' onClick={() => setIsEditFormVisible(true)}>Click here</button>
+                                                        </h1>
+                                                    </div>
+                                                </>
+                                        }
+                                    </>
+                                    :
+                                    <p>No Profile info yet</p>
+                            }
+                        </div>
+                }
 
                 {isEditFormVisible && (
-                    <form ref={formRef} className="edit-form" onSubmit={handleFormSubmit}>
+                    <form ref={formRef} className={editFormClassName} onSubmit={handleFormSubmit}>
                         <label for="fileInput">
                             Upload image
                             <input type="file"
@@ -227,37 +243,44 @@ export const Profile = () => {
                     </form>
                 )}
             </div>
-            <div class="main2">
+
+            <div class={editFormContainerClassName}>
                 <div className='container-headings'>
-                    <h3>My Items</h3>
-                    <p style={{ 'margin-top': '40px' }} className="heading-p">View and edit your items</p>
+                    <h3 className='profile-my-items'>My Items</h3>
+                    <p style={{ 'margin-top': '24px' }} className="heading-p">View and edit your items</p>
                 </div>
                 <div class="card-info">
                     {
-                        items.length === 0 ? (
-                            <div className="no-items">
-                                <p className='no-items-p' >You have no items</p>
-                                <Link className='no-items-add-link' to="/upload-item">Add an gym item</Link>
-                            </div>
-                        ) : (
-                            items.map((item) =>
-                                <div class="items">
-                                    <img src={`${item.image_url_path}`} />
-
-                                    <p>Name: {item.name}</p>
-                                    <span >Price: {item.price}£</span>
-
-                                    < Link className='edit-profile-btn' to={`/edit-item/${item.item_id}`}>
-                                        <button>Edit</button>
-                                    </Link>
-                                    <Link>
-                                        <button className='dlt-profile-btn' onClick={() => handleDelete(item.item_id)}>Delete</button>
-                                    </Link>
-
+                        loading ?
+                            <p className='profile-loading'>Loading...</p>
+                            :
+                            items.length === 0 ? (
+                                <div style={{ 'margin': 'auto', textAlign: 'center', 'verticalAlign': 'middle' }} className="no-items">
+                                    <p className='no-items-p' >You have no items</p>
+                                    <Link className='no-items-add-link' to="/upload-item">Add an gym item</Link>
                                 </div>
+                            ) : (
+                                items.map((item) =>
+                                    <div class="items">
+                                        <img src={`${item.image_url_path}`} className='items-image' alt="Item Image" />
+                                        <div className='profile-name-price-wrapper'>
+                                            <p className='item-name-profile'>Name: {item.name}</p>
+                                            <span>Price: {item.price}£</span>
+                                        </div>
+                                        <div class="edit-delete">
+                                            <Link className='edit-profile-btn' to={`/edit-item/${item.item_id}`}>
+                                                <button>Edit</button>
+                                            </Link>
+                                            <Link>
+                                                <button className='dlt-profile-btn' onClick={() => handleDelete(item.item_id)}>Delete</button>
+                                            </Link>
+                                        </div>
 
+                                    </div>
+
+
+                                )
                             )
-                        )
                     }
 
 
