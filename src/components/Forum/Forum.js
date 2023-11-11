@@ -5,17 +5,20 @@ import { useAuth } from '../../context/AuthContext';
 import ForumTopics from './ForumTopics';
 import useNotificationContext from '../../context/NotificationContext';
 import { useRef } from 'react';
+import { Link } from 'react-router-dom';
 
 export const Forum = () => {
     const BASE_URL = process.env.NODE_ENV === "development" ? "http://127.0.0.1:5000" : "https://gym-pro-website.herokuapp.com";
 
     const { addNotification } = useNotificationContext();
 
-    const { user } = useAuth()
+    const { user } = useAuth();
+    const userId = user._id;
 
     const [forumTopics, setForumTopics] = useState([])
 
     const [userData, setUserData] = useState(null);
+
 
     const getForumTopics = async () => {
         const request = await fetch(`${BASE_URL}/forum-data`, {
@@ -33,29 +36,30 @@ export const Forum = () => {
         }
     }
 
-    
+
     let getProfileInformationData = async () => {
         let request = await fetch(`${BASE_URL}/get-active-users`)
 
         if (request.ok) {
             let data = await request.json()
-            console.log('show me initial data', data)
             return data
         } else {
             console.log('Something went wrong while getting the logged data')
         }
     }
 
+    console.log('userData', userData);
+
     useEffect(() => {
         getForumTopics();
-    
+
         let getProfileInformation = async () => {
             let data = await getProfileInformationData()
             setUserData(data)
         }
-    
+
         getProfileInformation();
-    
+
         const pingInterval = setInterval(() => {
             fetch(`${BASE_URL}/ping`, {
                 method: 'POST',
@@ -66,14 +70,37 @@ export const Forum = () => {
                 console.error('Error:', error);
             });
         }, 6 * 60 * 60 * 1000);
-    
+
+        
+
         return () => {
             console.log('Forum component unmounted');
             clearInterval(pingInterval);
         };
     }, []);
+
+    useEffect(() => {
+        function handleBeforeUnload() {
+            fetch(`${BASE_URL}/ping`, {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${user.token}`,
+                },
+                keepalive: true, // This ensures the request will complete even if the page is closed
+            }).catch((error) => {
+                console.error('Error:', error);
+            });
+        }
     
+        window.addEventListener('beforeunload', handleBeforeUnload);
     
+        return () => {
+            window.removeEventListener('beforeunload', handleBeforeUnload);
+        };
+    }, [user.token]);
+    
+
+
 
     let forumTopicSubmit = async (event) => {
         event.preventDefault();
@@ -125,19 +152,21 @@ export const Forum = () => {
                 setDropdownOpen(false);
             }
         };
-    
+
         document.addEventListener("click", checkIfClickedOutside);
-    
+
         return () => {
             document.removeEventListener("click", checkIfClickedOutside);
         };
     }, []);
-    
+
 
     const [isDropdownOpen, setDropdownOpen] = useState(false);
+    const [hoveredUser, setHoveredUser] = useState(null);
 
     const dropdownRef = useRef(null);
 
+    console.log('show the userData', userData);
 
     return (
         <div className='main-forum-container'>
@@ -152,7 +181,7 @@ export const Forum = () => {
                         <a className='ask-question-element'>Ask Question</a>
                         {isClicked && (
 
-                            <div className="hover-form" onClick={(e) => e.stopPropagation()} style={{zIndex: 999}}>
+                            <div className="hover-form" onClick={(e) => e.stopPropagation()} style={{ zIndex: 999 }}>
                                 <form onSubmit={forumTopicSubmit}>
                                     <input name='title' type="text" placeholder="Title" />
                                     <textarea name='description' placeholder="Description"></textarea>
@@ -171,19 +200,46 @@ export const Forum = () => {
                     {isDropdownOpen && (
                         <div style={{ 'border': '1px solid white' }} className='main-forum-profile-users'>
                             {userData ? (
-                                userData.map((user, index) => (
-                                    <div key={index} className='profile-users-gen'>
-                                        {user.user_image ? (
-                                            <img
-                                                className='profile-user-gen-image'
-                                                src={user.user_image}
-                                                alt={`User ${index + 1} Profile`}
-                                            />
-                                        )
-                                            :
-                                            <p style={{'margin-left': '6px', fontSize: '10px', textAlign: 'center', 'padding-right': '15px', 'margin-top': '10px' }}>No Image</p>
-                                        }
-                                        <p style={{ 'textAlign': 'center', 'margin-left': '-2px', 'margin-bottom':'5px' }} className='profile-users-gen-name'>{user.user_name}</p>
+                                userData.map((userr, index) => (
+                                    <div
+                                        key={index}
+                                        className='profile-users-gen'
+                                        onMouseEnter={() => {
+                                            setHoveredUser(index)
+                                        }}
+                                        onMouseLeave={() => {
+                                            setHoveredUser(null)
+                                        }}
+                                    >
+                                        <div className='div-image-button'>
+                                            {userr.user_image ? (
+                                                <>
+                                                    <img
+                                                        className='profile-user-gen-image'
+                                                        src={userr.user_image}
+                                                        alt={`User ${index + 1} Profile`}
+                                                    />
+                                                    {(
+                                                        console.log('userr.user_id', userr),
+                                                        index === hoveredUser && userr.user_id !== userId
+                                                    )
+                                                        ? (
+                                                            console.log('userr.user_id %%%%%%%%%%%%%', userr),
+                                                            <Link to={`/chat/${userr.user_id}?username=${userr.user_name}`}>
+                                                                <button className='button-chat'>Chat</button>
+                                                            </Link>
+                                                        )
+                                                        :
+                                                        null
+                                                    }
+                                                </>
+                                            )
+                                                :
+                                                <p style={{ 'margin-left': '6px', fontSize: '10px', textAlign: 'center', 'padding-right': '15px', 'margin-top': '10px' }}>No Image</p>
+                                            }
+                                        </div>
+
+                                        <p style={{ 'textAlign': 'center', 'margin-left': '-2px', 'margin-bottom': '5px' }} className='profile-users-gen-name'>{userr.user_name}</p>
                                         <p className="active-dot"></p>
                                     </div>
                                 ))

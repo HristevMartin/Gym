@@ -42,6 +42,7 @@ export const Login = () => {
                 addNotification('Verify your credentials!', 'danger');
                 throw new Error('Verify your credentials');
             }
+
             login(resp);
             addNotification('Logged in successfully!', 'success')
             navigate('/profile');

@@ -89,6 +89,17 @@
     color: darkblue !important;
 }
 
+.unread-count {
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 5px 10px;
+    font-size: 12px;
+    position: relative;
+    top: -10px;
+    right: 15px;
+}
+
 .programs-overview p{
     margin-top: 10px;
     color: #FFA000;
@@ -105,6 +116,100 @@
 .logo-profiler:hover{
     color: #3498DB !important;
 }
+/* 
+.modal {
+    position: fixed;
+    z-index: 999999999999999999 !important;
+    left: 1100px;
+    border: 1px solid red;
+    top: 0;
+    line-height: 15px;
+    width: 20%;
+    height: 20%;
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.5); 
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: auto;
+} */
+
+.profile-section {
+    display: flex;
+    align-items: center;
+}
+
+.profile-logo {
+    margin-right: 10px;
+}
+
+.logo-profiler {
+    color: #fff;
+    font-size: 1.2em;
+}
+
+.unread-count {
+    background-color: red;
+    color: #fff;
+    border-radius: 50%;
+    padding: 5px 10px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Modal Styles */
+.modal {
+    position: fixed;
+    z-index: 9999;
+    left: 1240px;
+    top: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 16%;
+    height: 16%;
+    line-height: 15px;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.link-header{
+    list-style: none;
+    text-decoration: none;
+}
+
+.link-header:hover {
+    text-decoration: none;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%;  /* Giving it some breathing room */
+    border-radius: 5px;  /* Soften the edges for a modern look */
+}
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 
 
 /* responsive */

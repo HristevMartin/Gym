@@ -12,7 +12,7 @@ function CommentItem({ comment,
     editSuccess
 }) { 
 
-    let BASE_URL = process.env.NODE_ENV === "development" ? "http://localhost:5000" : "https://gym-pro-website.herokuapp.com";
+    let BASE_URL = process.env.NODE_ENV === "development" ? "http://127.0.0.1:5000" : "https://gym-pro-website.herokuapp.com";
 
 
     const [userHasLiked, setUserHasLiked] = useState(false);

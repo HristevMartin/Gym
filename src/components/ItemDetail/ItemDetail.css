@@ -63,15 +63,56 @@ img.product-img-picture {
   border-radius: 5%;
 }
 
+.chat-btn {
+  display: inline-block;
+  margin: 2px;
+  padding: 12px 15px;
+  background-color: #007BFF;
+  color: white;
+  list-style: none;
+  text-decoration: none;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.chat-btn:hover{
+  background-color: white;
+  color: #007BFF;
+  text-decoration: none;
+}
+
+.item-detail-start-a-chat{
+  text-decoration: none !important;
+}
+
+
 .span.title-comment-item-detail{
   margin-top: 11px !important;
 }
 
 .product-main .product-main-info {
   line-height: 15px;
+  position: relative;
   background-color: #2a2a2a;
   border-radius: 10%;
   width: 50%;
+}
+
+.edit-item-detail-btn{
+  color: black !important;
+}
+
+.edit-item-detail-btn:hover{
+  list-style: none;
+  text-decoration: none;
+}
+
+.edit-item-detail-div{
+  position: absolute;
+  bottom: 0px;
+  right: 20px;
 }
 
 .card-text-p-element {

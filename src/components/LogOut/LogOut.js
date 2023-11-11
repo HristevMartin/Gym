@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
-import { logout2 } from "../../services/authServices";
 
 export const LogOut = () => {
     const { user, logout } = useAuth();
@@ -17,8 +16,10 @@ export const LogOut = () => {
                     'Authorization': `Bearer ${user.token}`
                 }
             })
+            console.log('show request', request)
             return request;
         }
+        try{
         requestUser()
             .then(x => {
                 if (x.status === 204) {
@@ -27,6 +28,11 @@ export const LogOut = () => {
                     navigate('/');
                 }
             })
+        } catch (err) {
+            console.log('been here')
+            console.log(err)
+        }
+
     }, []);
 
 

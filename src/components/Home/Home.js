@@ -58,6 +58,9 @@ export const Home = () => {
                     </div>
                 </div>
             </div>
+ 
+ 
+ 
             <article className='home-bars'>
                 <div className='home-bars-wrapper'>
                     <h2 className='middle-header-main'>Invest in Your Gym Today!</h2>

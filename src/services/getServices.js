@@ -1,17 +1,16 @@
 export const getGymItems = async () => {
 
-    const BASE_URL = process.env.NODE_ENV === "development" ? "http://localhost:5000" : "https://gym-pro-website.herokuapp.com";
+    // const BASE_URL = process.env.NODE_ENV === "development" ? "http://localhost:5000" : "https://gym-pro-website.herokuapp.com";
+    const BASE_URL = process.env.NODE_ENV === "development" ? "http://127.0.0.1:5000" : "https://gym-pro-website.herokuapp.com";
 
     const request = await fetch(`${BASE_URL}/all-gym-items`);
     const response = await request.json();
-
-    console.log('show me if response is duplicated', response)
 
     return response
 }
 
 export const getSingleItemDashboard = async (itemId) => {
-    const BASE_URL = process.env.NODE_ENV === "development" ? "http://localhost:5000" : "https://gym-pro-website.herokuapp.com";
+    const BASE_URL = process.env.NODE_ENV === "development" ? "http://127.0.0.1:5000" : "https://gym-pro-website.herokuapp.com";
 
     const request = await fetch(`${BASE_URL}/single-gym-item/${itemId}`, {
         method: 'GET',

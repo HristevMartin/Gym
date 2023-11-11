@@ -12,7 +12,7 @@ const ForumComment = ({ content, forum_id, id, setRefreshKey, userId, commentUse
     const [loading, setLoading] = useState(false);
     const [emojiReactions, setEmojiReactions] = useState({});
 
-    const BASE_URL = process.env.NODE_ENV === "development" ? "http://localhost:5000" : "https://gym-pro-website.herokuapp.com";
+    const BASE_URL = process.env.NODE_ENV === "development" ? "http://127.0.0.1:5000" : "https://gym-pro-website.herokuapp.com";
 
     const [reactionId, setReactionId] = useState(null);
 
@@ -40,7 +40,7 @@ const ForumComment = ({ content, forum_id, id, setRefreshKey, userId, commentUse
     const confirmDelete = async () => {
         console.log('delete confirmed', id);
 
-        const request = await fetch(`${BASE_URL}/delete_comment/${id}`, {
+        const request = await fetch(`${BASE_URL}/delete_comment/${id}?forum_id=${forum_id}`, {
             method: 'DELETE',
         })
 

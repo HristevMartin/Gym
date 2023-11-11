@@ -18,6 +18,7 @@ export const AuthContextProvider = ({ children }) => {
     };
 
     const logout = () => {
+        console.log('calling the logOut function')
         setUser(initialUserState);
     }
 

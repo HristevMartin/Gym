@@ -55,6 +55,7 @@ export const loginToServer = async (email, password) => {
 
     if (request.status === 200){
         const resp = await request.json();
+        console.log('resp is ', resp);
         return resp;
     }
 

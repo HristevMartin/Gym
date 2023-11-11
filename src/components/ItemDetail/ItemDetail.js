@@ -7,6 +7,8 @@ import StarRating from './StarRating';
 import useNotificationContext from '../../context/NotificationContext';
 import CommentItem from './CommentItem';
 import Spinner from '../Spinner/Spinner';
+import { Link } from 'react-router-dom';
+
 
 export const ItemDetails = () => {
 
@@ -25,7 +27,7 @@ export const ItemDetails = () => {
   const token = user.token
   const userId = user._id
 
-  let BASE_URL = process.env.NODE_ENV === "development" ? "http://localhost:5000" : "https://gym-pro-website.herokuapp.com";
+  let BASE_URL = process.env.NODE_ENV === "development" ? "http://127.0.0.1:5000" : "https://gym-pro-website.herokuapp.com";
 
   const [showComments, setShowComments] = useState(false);
   const [writeComments, setWriteComments] = useState(false);
@@ -91,10 +93,9 @@ export const ItemDetails = () => {
   };
 
 
-  // 
   useEffect(() => {
     setIsLoading(true);
-    
+
     const fetchProduct = async () => {
       setIsLoading(true); // Start loading
       try {
@@ -103,7 +104,7 @@ export const ItemDetails = () => {
             'Authorization': `Bearer ${token}`
           }
         });
-  
+
         const data = await response.json();
         setProduct(data);
       } catch (error) {
@@ -111,8 +112,7 @@ export const ItemDetails = () => {
       } finally {
         setIsLoading(false); // End loading, no matter if there was an error or not
       }
-  };
-  
+    };
 
     fetchProduct();
 
@@ -187,6 +187,10 @@ export const ItemDetails = () => {
     }
   }
 
+  let itemUserId = product.user_id
+  let ownerOfItem = userId === itemUserId
+  
+
   return (
     <div className='card-details'>
       {
@@ -195,19 +199,19 @@ export const ItemDetails = () => {
           <Spinner />
           :
           <>
-            <div className="product-view">
+            <div  className="product-view">
               <div className='product-info-top'>
                 <div>
                   <h1 className='product-name-card-details'>{product.name}</h1>
                 </div>
               </div>
 
-              <div className='product-main'>
-                <div className='product-img'>
+              <div  className='product-main'>
+                <div  className='product-img'>
                   <img className='product-img-picture' src={`${imageurlpath}`} />
                 </div>
 
-                <div className='product-main-info'>
+                <div  className='product-main-info'>
 
                   <div className='price-wrapper'>
 
@@ -244,11 +248,28 @@ export const ItemDetails = () => {
                     {/* <button><a href='Edit' style={{ 'color': 'white', 'listStyle': 'none', 'textDecoration': 'none' }}>Edit</a></button>
               <button><a href='Edit' style={{ 'color': 'white', 'listStyle': 'none', 'textDecoration': 'none' }}>Delete</a></button> */}
                   </div>
+
+                  {
+                    ownerOfItem 
+                    ?
+                    <div className='edit-item-detail-div'>
+                    <Link to={`/edit-item/${itemId}`}>
+                      <button className='edit-item-detail-btn'>Edit</button>
+                    </Link>
+                    </div>
+                    :
+                    null
+                
+                  }
+
                 </div>
+                
+
               </div>
+              
             </div >
 
-            <div className='product-information'>
+            <div  className='product-information'>
               <h2 className='card-details-product-information'>Seller Information</h2>
               <div className='attributes-container'>
                 <ul>
@@ -277,6 +298,22 @@ export const ItemDetails = () => {
 
               </div>
             </div>
+
+            
+
+            {
+              product.user_id === userId
+                ?
+                null
+                :
+                <Link
+                  to={`/chat/${product.user_id}?username=${product.email_id}`}
+                  className='chat-btn'
+                >
+                  <p className='item-detail-start-a-chat'>Start a chat!</p>
+                </Link>
+            }
+
 
             <div className="comments-wrapper">
               <div className='comments-info-item-detail'>

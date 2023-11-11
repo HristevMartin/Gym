@@ -4,6 +4,8 @@ const CardItem = ({ product }) => {
 
   let imageUrl = product.image_url_path
 
+  console.log('imageUrl', imageUrl);
+
   return (
     <div className="card-itemss">
 

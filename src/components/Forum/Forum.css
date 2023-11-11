@@ -336,13 +336,15 @@
     padding-top: 4px;
     /* width: auto; */
     margin-bottom: 10px;
-    min-height: auto;
+    min-width: 200px;
+    height: auto;
     border-radius: 20%;
     margin-top: 15px;
     background-color: #353434;
     height: 120px;
     position: absolute;
-    width: 100%;
+    width: auto;
+    padding: 0px 15px;
 }
 
 .active-dot {
@@ -365,6 +367,7 @@
 .no-active-users{
     text-align: center;
 }
+
 
 .profile-users-gen-name{
     color: rgb(144, 144, 144);
@@ -537,6 +540,27 @@
 .title-main.description{
     line-height: 20px;
 }
+
+
+.div-image-button {
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+
+.button-chat {
+    position: absolute;
+    top: 70px;
+    left: -20px;
+}
+
+.profile-user-gen-image {
+    margin: 0;
+    padding: 0;
+}
+
+
 
 /* iphone view */
 @media (max-width: 400px) {

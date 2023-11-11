@@ -10,7 +10,7 @@ export const ForumTopics = ({
     id, views, likes, comments, title, user_id, description, onTopicDeleted
 }) => {
 
-    let BASE_URL = process.env.NODE_ENV === "development" ? "http://localhost:5000" : "https://gym-pro-website.herokuapp.com";
+    let BASE_URL = process.env.NODE_ENV === "development" ? "http://127.0.0.1:5000" : "https://gym-pro-website.herokuapp.com";
 
     const { addNotification } = useNotificationContext();
 

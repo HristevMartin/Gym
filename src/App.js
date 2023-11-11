@@ -24,19 +24,29 @@ import { NotificationProvider } from './context/NotificationContext';
 import ScrollTest from './components/Test/Test';
 import Forum from './components/Forum/Forum';
 import ForumDetail from './components/ForumDetail/ForumDetail';
-
-
-
-
-
+import Chat from './components/Chat/Chat';
+import { MessageProvider } from './context/MessageContext';
 
 function App() {
+
+  // useEffect(() => {
+  //   function handleBeforeUnload() {
+  //     <LogOut autoNavigate={false} />;
+  //   }
+    
+  //   window.addEventListener('beforeunload', handleBeforeUnload);
+    
+  //   return () => {
+  //     window.removeEventListener('beforeunload', handleBeforeUnload);
+  //   };
+  // }, []);
+
   const location = useLocation();
   const [showEquipmentBorder, setShowEquipmentBorder] = useState(false);
   const [showEquipmentHeight, setShowEquipmentHeight] = useState(false);
   const [showHeaderBorder, setshowHeaderBorder] = useState(false);
 
-
+  const [unreadCount, setUnreadCount] = useState(0);
 
   useEffect(() => {
     setShowEquipmentBorder(location.pathname === '/equipment');
@@ -48,10 +58,11 @@ function App() {
     <AuthContextProvider>
       <NotificationProvider>
         <div className={`App ${showEquipmentHeight ? 'equipment-height' : ''}`}>
-          <Header className={showEquipmentBorder ? 'header-with-border' : ''} height={showEquipmentHeight ? 'height' : ''}
-            headerBorder={showHeaderBorder ? 'header-with-border' : ''}
+          <Header 
+          className={showEquipmentBorder ? 'header-with-border' : ''} height={showEquipmentHeight ? 'height' : ''}
+            headerBorder={showHeaderBorder ? 'header-with-border' : ''  }
+            unreadCount={unreadCount} setUnreadCount={setUnreadCount}
           />
-
           <Notification />
 
           <Routes>
@@ -59,7 +70,6 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
-
 
             <Route element={< PrivateRoute />}>
               <Route path="/profile" element={<Profile />} />
@@ -73,6 +83,7 @@ function App() {
               <Route path="/test" element={<ScrollTest />} />
               <Route path="/forum" element={<Forum />} />
               <Route path='/forum/:id' element={<ForumDetail />}/>
+              <Route path='/chat/:userId' element={<Chat setUnreadCount={setUnreadCount} unreadCount={unreadCount} />} />
             </Route>
           </Routes>
           < Footer />
